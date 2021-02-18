@@ -37,6 +37,14 @@
     <meta property="og:image" content="../../../s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg" />
     <meta property="og:description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design." />
     <meta property="og:site_name" content="Creative Tim" />
+
+
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
     <!-- Bootstrap core CSS     -->
     <link href="{{ url('adminpro/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
     <!--  Material Dashboard CSS    -->
@@ -45,7 +53,7 @@
     <link href="{{ url('adminpro/assets/css/demo.css') }}" rel="stylesheet" />
     <!--     Fonts and icons     -->
     <link href="{{ url('adminpro/assets/css/font-awesome.css') }}" rel="stylesheet" />
-    <link href="{{ url('adminpro/assets/css/google-roboto-300-700.css') }}" rel="stylesheet" />
+    {{-- <link href="{{ url('adminpro/assets/css/google-roboto-300-700.css') }}" rel="stylesheet" /> --}}
 </head>
 
 <body>
@@ -195,21 +203,30 @@
     });
 </script>
 
+<script>
+    $(function(){
+      $('.nav-item .nav-link').filter(function(){return this.href==location.href}).parent().addClass('active')
+    })
+  </script>
+
 <script type="text/javascript">
     $(document).ready(function() {
         $('#datatables').DataTable({
             "pagingType": "full_numbers",
+            "searching": true,
             "lengthMenu": [
                 [10, 25, 50, -1],
                 [10, 25, 50, "All"]
             ],
             responsive: true,
-            language: {
-                search: "_INPUT_",
-                searchPlaceholder: "Search records",
-            }
+            
+            // searching: true,
+            // language: {
+            //     search: "_INPUT_",
+            //     searchPlaceholder: "Search records",
+            // }
 
-        });
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
 
         var table = $('#datatables').DataTable();

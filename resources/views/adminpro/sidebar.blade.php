@@ -1,4 +1,4 @@
-<div class="sidebar" data-active-color="rose" data-background-color="black" data-image="{{ ('adminpro/assets/img/sidebar-1.jpg') }}">
+<div class="sidebar" data-active-color="purple" data-background-color="white" data-image="{{ ('adminpro/assets/img/sidebar-1.jpg') }}">
     <!--
 Tip 1: You can change the color of active element of the sidebar using: data-active-color="purple | blue | green | orange | red | rose"
 Tip 2: you can also add an image using data-image tag
@@ -17,10 +17,11 @@ Tip 3: you can change the color of the sidebar with data-background-color="white
     <div class="sidebar-wrapper">
         <div class="user">
             <div class="photo">
-                <img src="{{ url('adminpro/assets/img/icon_mesin_jahit.png') }}" />
+                <img src="{{ url('adminpro/assets/img/icon_mesin_jahit_grey.jpg') }}" />
             </div>
             <div class="info">
                 <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                    <br>
                     {{ Auth::user()->name }}
                     {{-- <b class="caret"></b> --}}
                 </a>
@@ -41,77 +42,77 @@ Tip 3: you can change the color of the sidebar with data-background-color="white
         </div>
         <ul class="nav">
             <li class="nav-item ">
-                <a href="{{ url('/dashboard') }}">
+                <a class="nav-link" href="{{ url('/dashboard') }}">
                     <i class="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a href="{{ url('/data_pelanggan') }}">
+                <a class="nav-link" href="{{ url('/data_pelanggan') }}">
                     <i class="material-icons">person</i>
                     <p>Data Pelanggan</p>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a href="{{ url('/data_penjahit') }}">
+                <a class="nav-link" href="{{ url('/data_penjahit') }}">
                     <i class="material-icons">local_library</i>
                     <p>Data Penjahit</p>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a href="{{ url('/data_kategori') }}">
+                <a class="nav-link" href="{{ url('/data_kategori') }}">
                     <i class="material-icons">timeline</i>
                     <p>Data Kategori</p>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a href="{{ url('/data_detail_kategori') }}">
+                <a class="nav-link" href="{{ url('/data_detail_kategori') }}">
                     <i class="material-icons">apps</i>
                     <p>Data Detail Kategori</p>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a href="{{ url('/data_ukuran') }}">
+                <a class="nav-link" href="{{ url('/data_ukuran') }}">
                     <i class="material-icons">content_paste</i>
                     <p>Data Ukuran</p>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a href="{{ url('/data_pesanan') }}">
+                <a class="nav-link" href="{{ url('/data_pesanan') }}">
                     <i class="material-icons">layers</i>
                     <p>Data Pesanan</p>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a href="{{ url('/data_detail_pesanan') }}">
+                <a class="nav-link" href="{{ url('/data_detail_pesanan') }}">
                     <i class="material-icons">shopping_cart</i>
                     <p>Data Detail Pesanan</p>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a href="{{ url('/data_utilitas') }}">
+                <a class="nav-link" href="{{ url('/data_utilitas') }}">
                     <i class="material-icons">bubble_chart</i>
                     <p>Data Utilitas</p>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a href="{{ url('/data_kriteria') }}">
+                <a class="nav-link" href="{{ url('/data_kriteria') }}">
                     <i class="material-icons">widgets</i>
                     <p>Data Kriteria</p>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a href="{{ url('/data_rating') }}">
+                <a class="nav-link" href="{{ url('/data_rating') }}">
                     <i class="material-icons">stars</i>
                     <p>Data Rating</p>
                 </a>

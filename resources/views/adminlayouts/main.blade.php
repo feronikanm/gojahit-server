@@ -19,8 +19,6 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="{{ url('admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
@@ -72,7 +70,7 @@
     </div>
   </div>
 
-  {{-- <div class="fixed-plugin">
+  <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
       <a href="#" data-toggle="dropdown">
         <i class="fa fa-cog fa-2x"> </i>
@@ -116,7 +114,7 @@
 
       </ul>
     </div>
-  </div> --}}
+  </div>
 
 
 
