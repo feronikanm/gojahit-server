@@ -1,4 +1,5 @@
-@extends('adminlayouts.main')
+@extends('adminpro.main')
+{{-- @extends('adminlayouts.main') --}}
 
 @section('title', 'Data Rating')
 
@@ -12,14 +13,21 @@
     <div class="row">
         <div class="col-md-12">
         <div class="card">
-            <div class="card-header card-header-primary">
+
+            <div class="card-header card-header-tabs" data-background-color="purple">
+                <h4 class="card-title">Data Rating</h4>
+            </div>
+
+            {{-- <div class="card-header card-header-primary">
             <p class="card-category"></p>
             <h4 class="card-title ">Data Rating</h4>
             <p class="card-category"></p>
-            </div>
-            <div class="card-body">
+            </div> --}}
+            {{-- <div class="card-body"> --}}
+            <div class="card-content">
             <div class="table-responsive">
-                <table id="example1" class="table">
+                {{-- <table id="example1" class="table"> --}}
+                <table id="datatables" class="table">
                 
                     <thead class="text-primary">
                         <th></th>

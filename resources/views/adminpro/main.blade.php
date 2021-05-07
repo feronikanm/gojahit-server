@@ -56,6 +56,24 @@
     {{-- <link href="{{ url('adminpro/assets/css/google-roboto-300-700.css') }}" rel="stylesheet" /> --}}
 </head>
 
+<style>
+
+    table.dataTable thead th,
+    table.dataTable tfoot th {
+      /* font-weight: bold; */
+      /* padding: 10px 18px;  */
+      /* border-bottom: 1px solid #111; */
+    }
+    
+    div.dataTables_wrapper div.dataTables_length select {
+      width: auto;
+      display: inline-block;  /* ini yg kutambah */
+      border: 1px solid #aaa; /* ini yg kutambah */
+      border-radius: 5px;
+      padding: 5px;
+    }
+    </style>
+    
 <body>
     <div class="wrapper">
         @include('adminpro.sidebar')
@@ -83,12 +101,12 @@
                 <li class="adjustments-line">
                     <a href="javascript:void(0)" class="switch-trigger active-color">
                         <div class="badge-colors text-center">
-                            <span class="badge filter badge-purple" data-color="purple"></span>
+                            <span class="badge filter badge-purple active" data-color="purple"></span>
                             <span class="badge filter badge-blue" data-color="blue"></span>
                             <span class="badge filter badge-green" data-color="green"></span>
                             <span class="badge filter badge-orange" data-color="orange"></span>
                             <span class="badge filter badge-red" data-color="red"></span>
-                            <span class="badge filter badge-rose active" data-color="rose"></span>
+                            <span class="badge filter badge-rose" data-color="rose"></span>
                         </div>
                         <div class="clearfix"></div>
                     </a>
@@ -128,22 +146,22 @@
                 <li class="header-title">Images</li>
                 <li class="active">
                     <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="../assets/img/sidebar-1.jpg" alt="" />
+                        <img src="{{ url('adminpro/assets/img/sidebar-1.jpg') }}" alt="" />
                     </a>
                 </li>
                 <li>
                     <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="../assets/img/sidebar-2.jpg" alt="" />
+                        <img src="{{ url('adminpro/assets/img/sidebar-2.jpg') }}" alt="" />
                     </a>
                 </li>
                 <li>
                     <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="../assets/img/sidebar-3.jpg" alt="" />
+                        <img src="{{ url('adminpro/assets/img/sidebar-3.jpg') }}" alt="" />
                     </a>
                 </li>
                 <li>
                     <a class="img-holder switch-trigger" href="javascript:void(0)">
-                        <img src="../assets/img/sidebar-4.jpg" alt="" />
+                        <img src="{{ url('adminpro/assets/img/sidebar-4.jpg') }}" alt="" />
                     </a>
                 </li>
             </ul>
@@ -200,6 +218,13 @@
         demo.initDashboardPageCharts();
 
         demo.initVectorMap();
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        md.initSliders()
+        demo.initFormExtendedDatetimepickers();
     });
 </script>
 

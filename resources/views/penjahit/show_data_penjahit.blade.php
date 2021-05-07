@@ -1,4 +1,5 @@
-@extends('adminlayouts.main_show_page')
+@extends('adminpro.main')
+{{-- @extends('adminlayouts.main_show_page') --}}
 
 @section('title', 'Data Penjahit')
 
@@ -15,7 +16,6 @@
             <div class="card-avatar">
               <a href="javascript:;">
       
-                {{-- <img src="{{ url('img_pelanggan/'.$data_pelanggan->foto_pelanggan) }}" style="width: 120px; height: 120px; border-radius: 10px;" class="card-img-top mb-3" alt="..."> --}}
                 <img class="img" src="{{ url('img_penjahit/'.$data->foto_penjahit) }}" style="width: 130px; height: 130px;" />
               </a>
             </div>
@@ -38,138 +38,136 @@
       
       <div class="row">
 
-        <div class="col-md-7">
+        <div class="col-md-6">
           <div class="card">
 
-            {{-- <div class="card-header card-header-tabs card-header-primary mb-3">
-              <div class="nav-tabs-navigation">
-                <div class="nav-tabs-wrapper">
-                  <span class="nav-tabs-title" style="font-size: 1.125rem; ">Detail Data</span>
-                  <ul class="nav nav-tabs justify-content-end" data-tabs="tabs">
-                    <li class="nav-item">
-                      <a></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div> --}}
             
-            <div class="card-header card-header-primary">
+            {{-- <div class="card-header card-header-primary">
+              <h4 class="card-title">Detail Data</h4>
+            </div> --}}
+
+            <div class="card-header card-header-tabs" data-background-color="purple">
               <h4 class="card-title">Detail Data</h4>
             </div>
 
-            <div class="card-body ml-5 ">
+            {{-- <div class="card-body ml-5 "> --}}
+            <div class="card-content">
        
-              <div class="row">
-                <label class="col-sm-4 col-form-label text-primary ">{{ __('ID Penjahit') }}</label>
-                <div class="col-sm-8">{{ $data->id_penjahit }}</div>
-              </div>
+              <div class="card-content table-responsive table-full-width" style="margin-left: 50px">
+                <div class="row">
+                  <label class="col-sm-4 col-form-label text-primary ">{{ __('ID Penjahit') }}</label>
+                  <div class="col-sm-8">{{ $data->id_penjahit }}</div>
+                </div>
 
-              <div class="row">
-                <label class="col-sm-4 col-form-label text-primary">{{ __('Nama Penjahit') }}</label>
-                <div class="col-sm-8">{{ $data->nama_penjahit }}</div>
-              </div>
-              
-              <div class="row">
-                <label class="col-sm-4 col-form-label text-primary">{{ __('Email') }}</label>
-                <div class="col-sm-8">{{ $data->email_penjahit }}</div>
-              </div>
+                <div class="row">
+                  <label class="col-sm-4 col-form-label text-primary">{{ __('Nama Penjahit') }}</label>
+                  <div class="col-sm-8">{{ $data->nama_penjahit }}</div>
+                </div>
+                
+                <div class="row">
+                  <label class="col-sm-4 col-form-label text-primary">{{ __('Email') }}</label>
+                  <div class="col-sm-8">{{ $data->email_penjahit }}</div>
+                </div>
 
-              <div class="row">
-                <label class="col-sm-4 col-form-label text-primary">{{ __('Password') }}</label>
-                <div class="col-sm-8">{{ $data->password_penjahit }}</div>
-              </div>
+                <div class="row">
+                  <label class="col-sm-4 col-form-label text-primary">{{ __('Password') }}</label>
+                  <div class="col-sm-8">{{ $data->password_penjahit }}</div>
+                </div>
 
-              <div class="row">
-                <label class="col-sm-4 col-form-label text-primary">{{ __('No. Telp') }}</label>
-                <div class="col-sm-8">{{ $data->telp_penjahit }}</div>
-              </div>
+                <div class="row">
+                  <label class="col-sm-4 col-form-label text-primary">{{ __('No. Telp') }}</label>
+                  <div class="col-sm-8">{{ $data->telp_penjahit }}</div>
+                </div>
 
-              <div class="row">
-                <label class="col-sm-4 col-form-label text-primary">{{ __('Nama Toko') }}</label>
-                <div class="col-sm-8">{{ $data->nama_toko }}</div>
-              </div>
-    
-              <div class="row">
-                <label class="col-sm-4 col-form-label text-primary">{{ __('Keterangan Toko') }}</label>
-                <div class="col-sm-8">{{ $data->keterangan_toko }}</div>
-              </div>
-    
-              <div class="row">
-                <label class="col-sm-4 col-form-label text-primary">{{ __('Latitude') }}</label>
-                <div class="col-sm-8">{{ $data->latitude_penjahit }}</div>
-              </div>
-    
-              <div class="row">
-                <label class="col-sm-4 col-form-label text-primary">{{ __('Longitude') }}</label>
-                <div class="col-sm-8">{{ $data->longitude_penjahit }}</div>
-              </div>
+                <div class="row">
+                  <label class="col-sm-4 col-form-label text-primary">{{ __('Nama Toko') }}</label>
+                  <div class="col-sm-8">{{ $data->nama_toko }}</div>
+                </div>
+      
+                <div class="row">
+                  <label class="col-sm-4 col-form-label text-primary">{{ __('Keterangan Toko') }}</label>
+                  <div class="col-sm-8">{{ $data->keterangan_toko }}</div>
+                </div>
+      
+                <div class="row">
+                  <label class="col-sm-4 col-form-label text-primary">{{ __('Latitude') }}</label>
+                  <div class="col-sm-8">{{ $data->latitude_penjahit }}</div>
+                </div>
+      
+                <div class="row">
+                  <label class="col-sm-4 col-form-label text-primary">{{ __('Longitude') }}</label>
+                  <div class="col-sm-8">{{ $data->longitude_penjahit }}</div>
+                </div>
 
-              <div class="row">
-                <label class="col-sm-4 col-form-label text-primary">{{ __('Alamat') }}</label>
-                <div class="col-sm-8">{{ $data->alamat_penjahit }}</div>
-              </div>
+                <div class="row">
+                  <label class="col-sm-4 col-form-label text-primary">{{ __('Alamat') }}</label>
+                  <div class="col-sm-8">{{ $data->alamat_penjahit }}</div>
+                </div>
 
-              <div class="row">
-                <label class="col-sm-4 col-form-label text-primary">{{ __('Spesifikasi Penjahit') }}</label>
-                <div class="col-sm-8">{{ $data->spesifikasi_penjahit }}</div>
-              </div>
+                <div class="row">
+                  <label class="col-sm-4 col-form-label text-primary">{{ __('Spesifikasi Penjahit') }}</label>
+                  <div class="col-sm-8">{{ $data->spesifikasi_penjahit }}</div>
+                </div>
 
-              <div class="row">
-                <label class="col-sm-4 col-form-label text-primary">{{ __('Jangkauan Kategori Penjahit') }}</label>
-                <div class="col-sm-8">{{ $data->jangkauan_kategori_penjahit }}</div>
-              </div>
+                <div class="row">
+                  <label class="col-sm-4 col-form-label text-primary">{{ __('Jangkauan Kategori Penjahit') }}</label>
+                  <div class="col-sm-8">{{ $data->jangkauan_kategori_penjahit }}</div>
+                </div>
 
-              {{-- <div class="row">
-                <label class="col-sm-4 col-form-label">{{ __('Hari Buka') }}</label>
-                <div class="col-sm-8">{{ $data->hari_buka }}</div>
-                <div class="col-sm-8">
-                    @foreach ($data as $value)
-                      {{ $value['hari_buka'] }},
+                {{-- <div class="row">
+                  <label class="col-sm-4 col-form-label">{{ __('Hari Buka') }}</label>
+                  <div class="col-sm-8">{{ $data->hari_buka }}</div>
+                  <div class="col-sm-8">
+                      @foreach ($data as $value)
+                        {{ $value['hari_buka'] }},
+                      @endforeach
+                  </div>
+                </div> --}}
+
+                <div class="row">
+                  <label class="col-sm-4 col-form-label text-primary">{{ __('Hari Buka') }}</label>
+                  @foreach ($hari_buka as $hari_bukan)
+                    <div class="col-sm-8">
+                        {{ $hari_bukan->hari_buka }}
+                        {{-- {{$value = json_decode ($hari_bukan->hari_buka)}}                   --}}
+                    </div>
                     @endforeach
                 </div>
-              </div> --}}
 
-              <div class="row">
-                <label class="col-sm-4 col-form-label text-primary">{{ __('Hari Buka') }}</label>
-                @foreach ($hari_buka as $hari_buka)
-                  <div class="col-sm-8">
+                <div class="row">
+                  <label class="col-sm-4 col-form-label text-primary">{{ __('Jam Buka') }}</label>
+                  <div class="col-sm-8">{{ $data->jam_buka }}</div>
+                </div>
+
+                <div class="row">
+                  <label class="col-sm-4 col-form-label text-primary">{{ __('Jam Tutup') }}</label>
+                  <div class="col-sm-8">{{ $data->jam_tutup }}</div>
+                </div>
+
+                {{-- <div class="row">
+                  <label class="col-sm-4 col-form-label">{{ __('Kategori') }}</label>
+                </div>
+
+                <div class="row">
+                  @foreach ($kategori_penjahit as $kategori_penjahit)
                   
-                      {{ $hari_buka->hari_buka }}
-                   
-                      
-                  </div>
-                @endforeach
+                    <div class="col-sm-8">
+                      <li>
+                        {{ $kategori_penjahit->nama_kategori }}
+                      </li>
+                    </div>
+                  @endforeach
+                </div> --}}
+
               </div>
 
-              <div class="row">
-                <label class="col-sm-4 col-form-label text-primary">{{ __('Jam Buka') }}</label>
-                <div class="col-sm-8">{{ $data->jam_buka }}</div>
+              <div class="form-footer text-right" style="margin-bottom: 60px">
+                <a type="button" class="btn btn-primary pull-right" href="/data_penjahit/edit/{{ $data->id_penjahit }}">Update Data</a>
+                <a type="button" class="btn btn-white pull-right" href="/data_penjahit">Kembali</a>
               </div>
 
-              <div class="row">
-                <label class="col-sm-4 col-form-label text-primary">{{ __('Jam Tutup') }}</label>
-                <div class="col-sm-8">{{ $data->jam_tutup }}</div>
-              </div>
-
-              {{-- <div class="row">
-                <label class="col-sm-4 col-form-label">{{ __('Kategori') }}</label>
-              </div>
-
-              <div class="row">
-                @foreach ($kategori_penjahit as $kategori_penjahit)
-                
-                  <div class="col-sm-8">
-                    <li>
-                      {{ $kategori_penjahit->nama_kategori }}
-                    </li>
-                  </div>
-                @endforeach
-              </div> --}}
-
-    
-              <a type="button" class="btn btn-primary float-right" href="/data_penjahit/edit/{{ $data->id_penjahit }}">Update Data</a>
-              <a type="button" class="btn btn-secondary float-right" href="/data_penjahit">Kembali</a>
+              {{-- <a type="button" class="btn btn-primary float-right" href="/data_penjahit/edit/{{ $data->id_penjahit }}">Update Data</a> --}}
+              {{-- <a type="button" class="btn btn-secondary float-right" href="/data_penjahit">Kembali</a> --}}
 
             </div>
           </div>
@@ -178,10 +176,10 @@
 
         
 
-        <div class="col-md-5">
+        <div class="col-md-6">
           <div class="card">
             
-            <div class="card-header card-header-tabs card-header-primary  mb-3">
+            {{-- <div class="card-header card-header-tabs card-header-primary  mb-3">
               <div class="nav-tabs-navigation">
                 <div class="nav-tabs-wrapper">
                   <span class="nav-tabs-title" style="font-size: 1.125rem; ">Ketegori</span>
@@ -192,14 +190,23 @@
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> --}}
+
+            <div class="card-header card-header-tabs" data-background-color="purple">
+                        
+              <div class="nav nav-tabs" data-tabs="tabs">
+                  <span class="nav-tabs-title"><h4>Ketegori</h4></span>
+                  <a type="button" class="btn btn-primary pull-right " href="/data_penjahit/show/kategori/add/{{ $data->id_penjahit }}"><i class="material-icons">add</i> Tambah Data</a>
+              </div>
+          </div>
             
             {{-- <div class="card-header card-header-primary">
               <h4 class="card-title">Kategori</h4>
             </div> --}}
             
 
-            <div class="card-body">
+            {{-- <div class="card-body"> --}}
+            <div class="card-content">
               <div class="table-responsive">
                 <table id="example1" class="table table-bordered table-striped ">
                     <thead class="text-primary" >
@@ -236,14 +243,21 @@
       {{-- </div> --}}
 
       {{-- <div class="row"> --}}
-        <div class="col-md-7">
+        <div class="col-md-6">
           <div class="card">
-            <div class="card-header card-header-primary">
-              <p class="card-category"></p>
+
+
+            {{-- <div class="card-header card-header-primary">
               <h4 class="card-title">Data Pesanan</h4>
-              <p class="card-category"></p>
+            </div> --}}
+
+            <div class="card-header card-header-tabs" data-background-color="purple">
+              <h4 class="card-title">Data Pesanan</h4>
             </div>
-            <div class="card-body">
+
+
+            {{-- <div class="card-body"> --}}
+            <div class="card-content">
               <div class="table-responsive">
                 <table id="example1" class="table table-bordered table-striped ">
                     <thead class="text-primary" >

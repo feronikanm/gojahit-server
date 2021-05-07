@@ -1,4 +1,4 @@
-<div class="sidebar" data-active-color="purple" data-background-color="white" data-image="{{ ('adminpro/assets/img/sidebar-1.jpg') }}">
+<div class="sidebar" data-active-color="purple" data-background-color="black" data-image="{{ url('adminpro/assets/img/sidebar-1.jpg') }}">
     <!--
 Tip 1: You can change the color of active element of the sidebar using: data-active-color="purple | blue | green | orange | red | rose"
 Tip 2: you can also add an image using data-image tag
@@ -17,7 +17,7 @@ Tip 3: you can change the color of the sidebar with data-background-color="white
     <div class="sidebar-wrapper">
         <div class="user">
             <div class="photo">
-                <img src="{{ url('adminpro/assets/img/icon_mesin_jahit_grey.jpg') }}" />
+                <img src="{{ url('adminpro/assets/img/icon_mesin_jahit.png') }}" />
             </div>
             <div class="info">
                 <a data-toggle="collapse" href="#collapseExample" class="collapsed">

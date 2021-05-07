@@ -15,6 +15,7 @@ class DetailPesananModel extends Model
         'id_detail_pesanan',
         'id_pesanan',
         'catatan_pesanan',
+        'desain_jahitan',
         'kategori',
         'bahan_jahit',
         'asal_bahan',

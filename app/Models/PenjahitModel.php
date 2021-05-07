@@ -30,15 +30,15 @@ class PenjahitModel extends Model
     ];
 
 
-    public function setHariBukaAttribute($value)
-    {
-        $this->attributes['hari_buka'] = json_encode($value);
-    }
+    // public function setHariBukaAttribute($value)
+    // {
+    //     $this->attributes['hari_buka'] = json_encode($value);
+    // }
 
-    public function getHariBukaAttribute($value)
-    {
-        return $this->attributes['hari_buka'] = json_decode($value);
-    }
+    // public function getHariBukaAttribute($value)
+    // {
+    //     return $this->attributes['hari_buka'] = json_decode($value);
+    // }
 
 
     public function tbl_pesanan()

@@ -134,7 +134,10 @@
                         
                         <div class="form-check">
                           <label class="form-check-label">
-                              <input class="form-check-input" name="hari_buka[]" type="checkbox" value="Senin">
+                              <input class="form-check-input" name="hari_buka[]" type="checkbox" value="Senin"  {{ (is_array(old('hari_buka')) && in_array('Senin', old('hari_buka'))) ? ' checked' : '' }}>
+                              {{-- <input class="form-check-input" name="hari_buka[]" type="checkbox" value="Senin"  {{  ($data->hari_buka == 'Senin' ? ' checked' : '') }}> --}}
+                              {{-- <input type="checkbox" name="hari_buka[]"  value="Senin" @if(is_array(old('hari_buka')) && in_array('Senin', old('bidang'))) checked @endif>Pendidikan --}}
+                              {{-- <input class="form-check-input" type="checkbox" name="hobby[]" value="2" @if(is_array(old('hobby')) && in_array(2, old('hobby'))) checked @endif> basketball --}}
                               Senin
                               <span class="form-check-sign">
                                   <span class="check"></span>
@@ -144,7 +147,7 @@
 
                         <div class="form-check">
                           <label class="form-check-label">
-                              <input class="form-check-input" name="hari_buka[]" type="checkbox" value="Selasa">
+                              <input class="form-check-input" name="hari_buka[]" type="checkbox" value="Selasa" {{ (is_array(old('hari_buka')) && in_array('Selasa', old('hari_buka'))) ? ' checked' : '' }}>
                               Selasa
                               <span class="form-check-sign">
                                   <span class="check"></span>
@@ -154,7 +157,7 @@
 
                         <div class="form-check">
                           <label class="form-check-label">
-                              <input class="form-check-input" name="hari_buka[]" type="checkbox" value="Rabu">
+                              <input class="form-check-input" name="hari_buka[]" type="checkbox" value="Rabu" {{ (is_array(old('hari_buka')) && in_array('Rabu', old('hari_buka'))) ? ' checked' : '' }}>
                               Rabu
                               <span class="form-check-sign">
                                   <span class="check"></span>
@@ -164,7 +167,7 @@
 
                         <div class="form-check">
                           <label class="form-check-label">
-                              <input class="form-check-input" name="hari_buka[]" type="checkbox" value="Kamis">
+                              <input class="form-check-input" name="hari_buka[]" type="checkbox" value="Kamis" {{ (is_array(old('hari_buka')) && in_array('Kamis', old('hari_buka'))) ? ' checked' : '' }}>
                               Kamis
                               <span class="form-check-sign">
                                   <span class="check"></span>
@@ -174,7 +177,7 @@
 
                         <div class="form-check">
                           <label class="form-check-label">
-                              <input class="form-check-input" name="hari_buka[]" type="checkbox" value="Jumat">
+                              <input class="form-check-input" name="hari_buka[]" type="checkbox" value="Jumat" {{ (is_array(old('hari_buka')) && in_array('Jumat', old('hari_buka'))) ? ' checked' : '' }}>
                               Jum'at
                               <span class="form-check-sign">
                                   <span class="check"></span>
@@ -184,7 +187,7 @@
 
                         <div class="form-check">
                           <label class="form-check-label">
-                              <input class="form-check-input" name="hari_buka[]" type="checkbox" value="Sabtu">
+                              <input class="form-check-input" name="hari_buka[]" type="checkbox" value="Sabtu" {{ (is_array(old('hari_buka')) && in_array('Sabtu', old('hari_buka'))) ? ' checked' : '' }}>
                               Sabtu
                               <span class="form-check-sign">
                                   <span class="check"></span>
@@ -194,7 +197,7 @@
 
                         <div class="form-check">
                           <label class="form-check-label">
-                              <input class="form-check-input" name="hari_buka[]" type="checkbox" value="Minggu">
+                              <input class="form-check-input" name="hari_buka[]" type="checkbox" value="Minggu" {{ (is_array(old('hari_buka')) && in_array('Minggu', old('hari_buka'))) ? ' checked' : '' }}>
                               Minggu
                               <span class="form-check-sign">
                                   <span class="check"></span>

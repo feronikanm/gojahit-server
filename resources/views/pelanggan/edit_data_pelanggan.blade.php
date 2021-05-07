@@ -1,4 +1,5 @@
-@extends('adminlayouts.main')
+@extends('adminpro.main')
+{{-- @extends('adminlayouts.main') --}}
 
 @section('title', 'Edit Data Pelanggan')
 
@@ -7,8 +8,149 @@
 @section('content')
     
 <div class="content">
+  <div class="container-fluid">
     
-    <div class="col-md-8">
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+              <form method="post" action="/data_pelanggan/update/{{ $data->id_pelanggan }}" enctype="multipart/form-data" class="form-horizontal">
+                {{ csrf_field() }}
+                <div class="card-header card-header-tabs" data-background-color="purple">
+                    <h4 class="card-title">Edit Data Pelanggan</h4>
+                </div>
+                <div class="card-content">
+                  
+                  <input type="hidden" name="id_pelanggan" id="id_pelanggan" value="{{ $data->id_pelanggan }}">
+
+
+                  <div class="row">
+                      <label class="col-sm-2 label-on-left">Nama</label>
+                      <div class="col-sm-7">
+                          <div class="form-group label-floating is-empty">
+                              <input class="form-control" name="nama_pelanggan" type="text" placeholder="Nama Pelanggan" value="{{ $data->nama_pelanggan }}"  autofocus />
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <label class="col-sm-2 label-on-left">Email <small>*</small></label>
+                      <div class="col-sm-7">
+                          <div class="form-group label-floating is-empty">
+                              <input class="form-control" name="email_pelanggan" type="email" placeholder="name@mail.com" value="{{ $data->email_pelanggan }}" required="true"  />
+                          </div>
+                      </div>
+                  </div>
+ 
+                  <div class="row">
+                    <label class="col-sm-2 label-on-left">Password <small>*</small></label>
+                    <div class="col-sm-7">
+                        <div class="form-group label-floating is-empty">
+                            <input class="form-control" name="password_pelanggan" type="password" placeholder="xxxxxx" value="{{ $data->password_pelanggan }}" required="true" />
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <label class="col-sm-2 label-on-left">No. Telp</label>
+                    <div class="col-sm-7">
+                        <div class="form-group label-floating is-empty">
+                            <input class="form-control" name="telp_pelanggan" type="text" placeholder="08xxxxxx" value="{{ $data->telp_pelanggan }}"  />
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <label class="col-sm-2 label-on-left">Latitude</label>
+                    <div class="col-sm-7">
+                        <div class="form-group label-floating is-empty">
+                            <input class="form-control" name="latitude_pelanggan" type="text" placeholder="{{ __('Latitude') }}" value="{{ $data->latitude_pelanggan }}"    />
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <label class="col-sm-2 label-on-left">Longitude</label>
+                    <div class="col-sm-7">
+                        <div class="form-group label-floating is-empty">
+                            <input class="form-control" name="longitude_pelanggan" type="text" placeholder="{{ __('Longitude') }}" value="{{ $data->longitude_pelanggan }}"    />
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <label class="col-sm-2 label-on-left">Alamat</label>
+                    <div class="col-sm-7">
+                        <div class="form-group label-floating is-empty">
+                            <input class="form-control" name="alamat_pelanggan" type="text" placeholder="{{ __('Alamat') }}" value="{{ $data->alamat_pelanggan }}"    />
+                        </div>
+                    </div>
+                  </div>
+
+
+                  <div class="row">
+                    <label class="col-sm-2 label-on-left">Jenis Kelamin</label>
+                    <div class="col-sm-7 checkbox-radios">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="jk_pelanggan" value="Laki-laki" checked="true"> Laki-laki
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="jk_pelanggan" value="Perempuan"> Perempuan
+                            </label>
+                        </div>
+                    </div>
+                  </div>
+
+      
+                  <div class="row">
+                  <label class="col-sm-2 label-on-left">Foto</label>
+
+                      <div class="col-md-4 col-sm-4">
+                        <br>
+                        <img src="{{ url('img_pelanggan/'.$data->foto_pelanggan) }}" style="width: 120px; height: 120px; border-radius: 10px;" class="card-img-top mb-3" alt="...">
+                          <br>
+                          <br>
+                          <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                              <div class="fileinput-new thumbnail">
+                                  <img src="{{ url('adminpro/assets/img/image_placeholder.jpg') }}" alt="...">
+                              </div>
+                              <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                              <div>
+                                  <span class="btn btn-primary btn-round btn-file">
+                                      <span class="fileinput-new">Select image</span>
+                                      <span class="fileinput-exists">Change</span>
+                                      <input type="file" name="foto_pelanggan" />
+                                  </span>
+
+                                  <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                              </div>
+                          </div>
+                      </div> 
+                  </div>
+
+                  
+                  <div class="form-footer text-right">
+                    <div class="checkbox pull-left">
+                      <div class="category form-category">
+                        <small>*</small> Required fields
+                      </div>
+                    </div>
+                    <a type="button" class="btn btn-white pull-fill" href="/data_pelanggan">Kembali</a>
+                    <button type="submit" class="btn btn-primary pull-fill">Simpan</button>
+                  </div>
+
+                  
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    {{-- <div class="col-md-8">
     <div class="card">
         <div class="card-header card-header-primary">
         <p class="card-category"></p>
@@ -109,7 +251,6 @@
                         </label>
                     </div>
 
-                      {{-- <input class="form-control" name="nama_ukuran" id="category" type="text" placeholder="{{ __('Nama') }}"   /> --}}
                     </div>
                   </div>
                 </div>
@@ -131,8 +272,9 @@
 
         </div>
     </div>
-    </div>
+  </div> --}}
 
+  </div>
 </div>    
 
 

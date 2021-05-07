@@ -1,4 +1,5 @@
-@extends('adminlayouts.main')
+@extends('adminpro.main')
+{{-- @extends('adminlayouts.main') --}}
 
 @section('title', 'Tambah Data Penjahit')
 
@@ -8,16 +9,230 @@
         
 
   <div class="content">
-    
     <div class="container-fluid">
-        <div class="row">
+
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+                <form method="post" action="/data_penjahit/store" enctype="multipart/form-data" class="form-horizontal">
+                  {{ csrf_field() }}
+                  <div class="card-header card-header-tabs" data-background-color="purple">
+                      <h4 class="card-title">Tambah Data Penjahit</h4>
+                  </div>
+                  <div class="card-content">
+                    
+                    <div class="row">
+                        <label class="col-sm-2 label-on-left">Nama</label>
+                        <div class="col-sm-7">
+                            <div class="form-group label-floating is-empty">
+                                <input class="form-control" name="nama_penjahit" type="text" placeholder="Nama Penjahit"  autofocus />
+                            </div>
+                        </div>
+                    </div>
+  
+                    <div class="row">
+                        <label class="col-sm-2 label-on-left">Email <small>*</small></label>
+                        <div class="col-sm-7">
+                            <div class="form-group label-floating is-empty">
+                                <input class="form-control" name="email_penjahit" type="email" placeholder="name@mail.com" required="true"  />
+                            </div>
+                        </div>
+                    </div>
+   
+                    <div class="row">
+                      <label class="col-sm-2 label-on-left">Password <small>*</small></label>
+                      <div class="col-sm-7">
+                          <div class="form-group label-floating is-empty">
+                              <input class="form-control" name="password_penjahit" type="password" placeholder="xxxxxx"  required="true" />
+                          </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <label class="col-sm-2 label-on-left">No. Telp</label>
+                      <div class="col-sm-7">
+                          <div class="form-group label-floating is-empty">
+                              <input class="form-control" name="telp_penjahit" type="text" placeholder="08xxxxxx"   />
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <label class="col-sm-2 label-on-left">Nama Toko</label>
+                      <div class="col-sm-7">
+                          <div class="form-group label-floating is-empty">
+                              <input class="form-control" name="nama_toko" type="text" placeholder="{{ __('Nama Toko') }}"   />
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <label class="col-sm-2 label-on-left">Keterangan Toko</label>
+                      <div class="col-sm-7">
+                          <div class="form-group label-floating is-empty">
+                              <textarea class="form-control" rows="3" name="keterangan_toko" placeholder="{{ __('Keterangan Toko') }}"></textarea>
+
+                              {{-- <input class="form-control" name="keterangan_toko" type="text" placeholder="{{ __('Keterangan Toko') }}"   /> --}}
+                          </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <label class="col-sm-2 label-on-left">Latitude</label>
+                      <div class="col-sm-7">
+                          <div class="form-group label-floating is-empty">
+                              <input class="form-control" name="latitude_penjahit" type="text" placeholder="{{ __('Latitude') }}"   />
+                          </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <label class="col-sm-2 label-on-left">Longitude</label>
+                      <div class="col-sm-7">
+                          <div class="form-group label-floating is-empty">
+                              <input class="form-control" name="longitude_penjahit" type="text" placeholder="{{ __('Longitude') }}"   />
+                          </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <label class="col-sm-2 label-on-left">Alamat</label>
+                      <div class="col-sm-7">
+                          <div class="form-group label-floating is-empty">
+                              <input class="form-control" name="alamat_penjahit" type="text" placeholder="{{ __('Alamat') }}"   />
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <label class="col-sm-2 label-on-left">Spesifikasi Penjahit</label>
+                      <div class="col-sm-7">
+                          <div class="form-group label-floating is-empty">
+                              <input class="form-control" name="spesifikasi_penjahit" type="text" placeholder="{{ __('Spesifikasi Penjahit') }}"   />
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <label class="col-sm-2 label-on-left">Jangkauan Kategori Penjahit</label>
+                      <div class="col-sm-7">
+                          <div class="form-group label-floating is-empty">
+                              <input class="form-control" name="jangkauan_kategori_penjahit" type="text" placeholder="{{ __('Jangkauan Kategori Penjahit') }}"   />
+                          </div>
+                      </div>
+                    </div>
+  
+  
+                    <div class="row">
+                      <label class="col-sm-2 label-on-left">Hari Buka'</label>
+                      <div class="col-sm-7 checkbox-radios">
+                          <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" name="hari_buka[]" value="Senin"> Senin
+                              </label>
+                          </div>
+                          <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" name="hari_buka[]" value="Selasa"> Selasa
+                              </label>
+                          </div>
+                          <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" name="hari_buka[]" value="Rabu"> Rabu
+                              </label>
+                          </div>
+                          <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" name="hari_buka[]" value="Kamis"> Kamis
+                              </label>
+                          </div>
+                          <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" name="hari_buka[]" value="Jumat"> Jum'at
+                              </label>
+                          </div>
+                          <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" name="hari_buka[]" value="Sabtu"> Sabtu
+                              </label>
+                          </div>
+                          <div class="checkbox">
+                              <label>
+                                  <input type="checkbox" name="hari_buka[]" value="Minggu"> Minggu
+                              </label>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <label class="col-sm-2 label-on-left">Jam Buka</label>
+                      <div class="col-sm-3">
+                          <div class="form-group label-floating is-empty">
+                              <input class="form-control timepicker" name="jam_buka" type="time" placeholder="{{ __('08:00 AM') }}"   />
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <label class="col-sm-2 label-on-left">Jam Tutup</label>
+                      <div class="col-sm-3">
+                          <div class="form-group label-floating is-empty">
+                              <input class="form-control timepicker" name="jam_tutup" type="time" placeholder="{{ __('05:00 PM') }}"   />
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                    <label class="col-sm-2 label-on-left">Foto</label>
+  
+                        <div class="col-md-4 col-sm-4">
+                          <br>
+                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                <div class="fileinput-new thumbnail">
+                                    <img src="{{ url('adminpro/assets/img/image_placeholder.jpg') }}" alt="...">
+                                </div>
+                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                <div>
+                                    <span class="btn btn-primary btn-round btn-file">
+                                        <span class="fileinput-new">Select image</span>
+                                        <span class="fileinput-exists">Change</span>
+                                        <input type="file" name="foto_penjahit" />
+                                    </span>
+  
+                                    <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+  
+                    
+                    <div class="form-footer text-right">
+                      <div class="checkbox pull-left">
+                        <div class="category form-category">
+                          <small>*</small> Required fields
+                        </div>
+                      </div>
+                      <a type="button" class="btn btn-white pull-fill" href="/data_penjahit">Kembali</a>
+                      <button type="submit" class="btn btn-primary pull-fill">Simpan</button>
+                    </div>
+  
+                    
+                  </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+
+
+
+        {{-- <div class="row">
             <div class="col-md-8">
             <div class="card">
                 <div class="card-header card-header-primary">
-                <p class="card-category"></p>
-                <h4 class="card-title ">Tambah Data Penjahit</h4>
-                <p class="card-category"></p>
-                </div>
+                  <p class="card-category"></p>
+                  <h4 class="card-title ">Tambah Data Penjahit</h4>
+                  <p class="card-category"></p>
+                  </div>
                 <div class="card-body">
       
                     <form method="post" action="/data_penjahit/store" enctype="multipart/form-data">
@@ -75,7 +290,6 @@
                           <div class="col-sm-7">
                             <div class="form-group">
                               <textarea class="form-control" rows="3" name="keterangan_toko" placeholder="{{ __('Keterangan Toko') }}"></textarea>
-                              {{-- <input class="form-control" name="keterangan_toko" id="category" type="text" placeholder="{{ __('Keterangan Toko') }}"   /> --}}
                             </div>
                           </div>
                         </div>
@@ -129,7 +343,6 @@
                           <label class="col-sm-3 col-form-label">{{ __('Hari Buka') }}</label>
                           <div class="col-sm-7">
                             <div class="form-group">
-                              {{-- <input class="form-control" name="hari_buka" id="category" type="text" placeholder="{{ __('Hari Buka') }}"   /> --}}
                               
                               <div class="form-check">
                                 <label class="form-check-label">
@@ -244,8 +457,10 @@
             
               </div>
             </div>
-        </div>
-        </div>
+        </div> --}}
+
+
+    </div>
   </div>
 
 @endsection

@@ -16,6 +16,7 @@ class ApiDetailPesananController extends Controller
 
         $insert_detail_pesanan->id_pesanan = $request->idPesanan;
         $insert_detail_pesanan->catatan_pesanan = $request->catatanPesanan;
+        $insert_detail_pesanan->desain_jahitan = $request->desainJahitan;
         $insert_detail_pesanan->kategori = $request->kategori;
         $insert_detail_pesanan->bahan_jahit = $request->bahanJahit;
         $insert_detail_pesanan->asal_bahan = $request->asalBahan;
@@ -47,6 +48,7 @@ class ApiDetailPesananController extends Controller
 
             $data_detail_pesanan->id_pesanan = $request->idPesanan;
             $data_detail_pesanan->catatan_pesanan = $request->catatanPesanan;
+            $data_detail_pesanan->desain_jahitan = $request->desainJahitan;
             $data_detail_pesanan->kategori = $request->kategori;
             $data_detail_pesanan->bahan_jahit = $request->bahanJahit;
             $data_detail_pesanan->asal_bahan = $request->asalBahan;

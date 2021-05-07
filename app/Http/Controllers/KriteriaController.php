@@ -34,7 +34,6 @@ class KriteriaController extends Controller
 
         $kriteria = KriteriaModel::all();
 
-
         // $bobot_kriteria = DB::table('kriteria')->select('bobot_kriteria')->get();
         $bobot_kriteria = DB::table('kriteria')->pluck('bobot_kriteria');
 

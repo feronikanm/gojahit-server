@@ -1,4 +1,5 @@
-@extends('adminlayouts.main')
+@extends('adminpro.main')
+{{-- @extends('adminlayouts.main') --}}
 
 @section('title', 'Tambah Data Kategori')
 
@@ -8,10 +9,77 @@
         
 
   <div class="content">
-    
-    
     <div class="container-fluid">
-        <div class="row">
+
+
+
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+
+              <div class="card-header card-header-tabs" data-background-color="purple">
+                  <h4 class="card-title ">Tambah Data Kategori</h4>
+              </div>
+          
+                <form method="post" action="/data_kategori/store" enctype="multipart/form-data" class="form-horizontal">
+                  {{ csrf_field() }}
+
+
+                  <div class="card-content">
+
+                    <div class="row">
+                      <label class="col-sm-2 label-on-left">Nama Kategori</label>
+                      <div class="col-sm-7">
+                          <div class="form-group label-floating is-empty">
+                              <input class="form-control" name="nama_kategori" type="text" placeholder="Nama Kategori"  autofocus />
+                          </div>
+                      </div>
+                    </div>
+  
+      
+                    <div class="row">
+                    <label class="col-sm-2 label-on-left">Gambar Kategori</label>
+    
+                        <div class="col-md-4 col-sm-4">
+                          <br>
+                            <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                <div class="fileinput-new thumbnail">
+                                    <img src="../adminpro/assets/img/image_placeholder.jpg" alt="...">
+                                </div>
+                                <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                <div>
+                                    <span class="btn btn-primary btn-round btn-file">
+                                        <span class="fileinput-new">Select image</span>
+                                        <span class="fileinput-exists">Change</span>
+                                        <input type="file" name="gambar_kategori" />
+                                    </span>
+    
+                                    <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+
+
+                    <div class="form-footer text-right">
+                      <div class="checkbox pull-left">
+                        <div class="category form-category">
+                        </div>
+                      </div>
+                      <a type="button" class="btn btn-white pull-fill" href="/data_kategori">Kembali</a>
+                      <button type="submit" class="btn btn-primary pull-fill">Simpan</button>
+                    </div>  
+      
+                  </div>           
+                      
+                </form>
+                  
+            </div>
+          </div>
+        </div>
+
+      
+        {{-- <div class="row">
             <div class="col-md-8">
             <div class="card">
                 <div class="card-header card-header-primary">
@@ -24,33 +92,6 @@
 
                     <form method="post" action="/data_kategori/store" enctype="multipart/form-data">
                       {{ csrf_field() }}
-
-      {{-- ini bisa dari aku --}}
-                        {{-- <div class="form-group">
-                          <label for="exampleInputEmail1">Nama Kategori</label>
-                          <input type="text" class="form-control" name="nama_kategori" placeholder="Nama Kategori">
-                        </div> --}}
-
-                        {{-- <div class="form-group">
-                          <input type="file" class="" name="gambar_kategori">
-                      </div> --}}
-
-{{-- /////////////// --}}
-
-                      {{-- <div class="form-group">
-                        <label for="exampleInputEmail1">Gambar Kategori</label>
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="customFile" name="gambar_kategori">
-                          <label class="custom-file-label" for="customFile">Choose file</label>
-                        </div>
-                      </div> --}}
-                      
-{{-- /////////////// --}}
-
-                    
-                      {{-- <div class="form-group">
-                          <input type="file" class="" name="gambar_kategori">
-                      </div> --}}
 
 
                       <div class="card-body ">
@@ -88,7 +129,9 @@
                 </div>
             </div>
             </div>
-        </div>
+        </div> --}}
+
+
         </div>
 
   </div>

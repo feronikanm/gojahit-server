@@ -18,6 +18,7 @@ class CreateDetailPesananTable extends Migration
             $table->increments('id_detail_pesanan');
             $table->integer('id_pesanan')->unsigned();
             $table->text('catatan_pesanan')->nullable();
+            $table->string('desain_jahitan')->nullable();
             $table->string('kategori')->nullable();
             $table->string('bahan_jahit')->nullable();
             $table->string('asal_bahan')->nullable();

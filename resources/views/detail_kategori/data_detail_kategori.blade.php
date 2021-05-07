@@ -1,4 +1,5 @@
-@extends('adminlayouts.main')
+@extends('adminpro.main')
+{{-- @extends('adminlayouts.main') --}}
 
 @section('title', 'Data Detail Kategori')
 
@@ -14,6 +15,8 @@
             <div class="col-md-12">
             <div class="card">
                 
+                {{-- ini untuk layout adminlayouts
+
                 <div class="card-header card-header-tabs card-header-primary">
                     <div class="nav-tabs-navigation">
                       <div class="nav-tabs-wrapper">
@@ -25,11 +28,23 @@
                         </ul>
                       </div>
                     </div>
-                  </div>
+                  </div> --}}
 
-                <div class="card-body">
+                  <div class="card-header card-header-tabs" data-background-color="purple">
+                        
+                    <div class="nav nav-tabs" data-tabs="tabs">
+                        <span class="nav-tabs-title"><h4 style=" text-shadow: 0 2px 5px rgba(33, 33, 33, 0.5); ">Data Detail Ketegori</h4></span>
+                        <a type="button" class="btn btn-primary pull-right " href="/data_detail_kategori/add"><i class="material-icons">add</i> Tambah Data</a>
+                    </div>
+                </div>
+
+                {{-- <div class="card-body"> --}}
+                <div class="card-content">
+
                 <div class="table-responsive">
-                    <table id="example1" class="table table-bordered table-striped">
+                    {{-- <table id="example1" class="table table-bordered table-striped"> --}}
+                    <table id="datatables" class="table table-bordered table-striped">
+
                     <thead class=" text-primary">
                         <th class="text-center">No</th>
                         <th>Nama Penjahit</th>

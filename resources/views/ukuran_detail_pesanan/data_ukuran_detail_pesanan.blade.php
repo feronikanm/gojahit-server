@@ -1,4 +1,5 @@
-@extends('adminlayouts.main')
+@extends('adminpro.main')
+{{-- @extends('adminlayouts.main') --}}
 
 @section('title', 'Data Ukuran Detail Pesanan')
 
@@ -12,14 +13,26 @@
     <div class="row">
         <div class="col-md-12">
         <div class="card">
+            
+            {{-- ini untuk layout adminlayouts
             <div class="card-header card-header-primary">
-            <p class="card-category"></p>
-            <h4 class="card-title ">Data Ukuran Detail Pesanan</h4>
-            <p class="card-category"></p>
+                <p class="card-category"></p>
+                <h4 class="card-title ">Data Ukuran Detail Pesanan</h4>
+                <p class="card-category"></p>
+            </div> --}}
+
+            <div class="card-header card-header-tabs" data-background-color="purple">
+                <h4 class="card-title">Data Ukuran Detail Pesanan</h4>
             </div>
+
+            {{-- <div class="card-body"> --}}
             <div class="card-body">
+
             <div class="table-responsive">
-                <table id="example1" class="table">
+
+                {{-- <table id="example1" class="table"> --}}
+                <table id="datatables" class="table">
+
                 <thead class=" text-primary">
                     {{-- <th class="text-center">No</th> --}}
                     <th class="text-center">ID Detail Pesanan</th>

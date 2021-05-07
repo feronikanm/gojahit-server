@@ -8,8 +8,18 @@ use App\Models\PelangganModel;
 class ApiPelangganController extends Controller
 {
     public function get_all_pelanggan(){
-        return response()->json(PelangganModel::all(), 200);
+        $pelanggan = PelangganModel::all();
+
+        // foreach($pelanggan as $data_pelanggan)          
+        // { 
+        //     response()->download(public_path('img_pelanggan/'.$data_pelanggan->foto_pelanggan), 'User Image');
+        // }
+        return response()->json($pelanggan, 200);
     }
+
+    // public function img_pelanggan(){
+    //     return response()->download(public_path('img_pelanggan/'.$data->foto_pelanggan), 'User Image');
+    // }
 
     public function insert_data_pelanggan(Request $request){
 
@@ -34,9 +44,33 @@ class ApiPelangganController extends Controller
             $insert_pelanggan->longitude_pelanggan = $request->longitudePelanggan;
             $insert_pelanggan->alamat_pelanggan = $request->alamatPelanggan;
             $insert_pelanggan->jk_pelanggan = $request->jkPelanggan;
-            $insert_pelanggan->foto_pelanggan = $request->fotoPelanggan;
+            // $insert_pelanggan->foto_pelanggan = $request->fotoPelanggan;
+            // $insert_pelanggan->save();
+
+            if($request->hasFile('foto_pelanggan')){
+                $file = $request->file('foto_pelanggan');
+                $extension = $file->getClientOriginalExtension();
+                $fileName = time() . '.' . $extension;
+                $path = $request->file('photo')->move(public_path("img_pelanggan"), $fileName);
+                $photoURL = url('/'.$fileName);
+
+                // $file = $request->file('foto_pelanggan');
+                // $extension = $file->getClientOriginalExtension();
+                // $filename = time() . '.' . $extension;
+                // $file->move('img_pelanggan', $filename);
+                // $photoURL = url('/'.$filename);
+                // $insert_pelanggan->foto_pelanggan = $filename;
+                // $save = DB::table('images')->insert(['image' => $name]);
+                // return response()->json(['url' => $photoURL], 200);
+                $insert_pelanggan->fotoPelanggan = $photoURL;
+            // }else{
+            //     return $request;
+            //     $insert_pelanggan->foto_pelanggan = '';
+            }
+    
             $insert_pelanggan->save();
     
+
             return response([
                 'status' => 'OK',
                 'message' => 'Data Berhasil Ditambahkan',
@@ -44,6 +78,8 @@ class ApiPelangganController extends Controller
             ], 200);
         
 
+           
+        
         
        
 
@@ -106,6 +142,17 @@ class ApiPelangganController extends Controller
                 'message' => 'Data tidak ditemukan',
             ], 404);
         }
+    }
+
+    public function file(){
+        return response()->download(public_path('img_pelanggan/user.jpg'), 'User Image');
+    }
+
+    public function fileSave(Request $request){
+        $fileName = "user_image.jpg";
+        $path = $request->file('photo')->move(public_path("img_pelanggan"), $fileName);
+        $photoURL = url('/'.$fileName);
+        return response()->json(['url' => $photoURL], 200);
     }
 
 }

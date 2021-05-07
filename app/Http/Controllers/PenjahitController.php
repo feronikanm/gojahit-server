@@ -32,7 +32,7 @@ class PenjahitController extends Controller
         $kategori = KategoriModel::all();
         $detail_kategori = DetailKategoriModel::all();
 
-        $hari_buka = DB::table('penjahit')
+        $hari_bukas = DB::table('penjahit')
         ->select('penjahit.hari_buka')
         ->where('penjahit.id_penjahit', '=', $id)
         ->get();
@@ -70,7 +70,8 @@ class PenjahitController extends Controller
         // $kategori_penjahit = json_decode(json_encode($dataJson), true);
         
         // dd($kategori_penjahit);
-        return view('penjahit.show_data_penjahit', ['kategori_penjahit' => $kategori_penjahit, 'hari_buka' => $hari_buka, 'pesanan' => $pesanan], compact('data', 'kategori', 'detail_kategori'));
+        // dd($hari_bukas);
+        return view('penjahit.show_data_penjahit', ['kategori_penjahit' => $kategori_penjahit, 'hari_buka' => $hari_bukas, 'pesanan' => $pesanan], compact('data', 'kategori', 'detail_kategori'));
     }
 
 
@@ -140,8 +141,9 @@ class PenjahitController extends Controller
         // $insert_data->jam_tutup = $request->jam_tutup;
 
         $insert_data = $request->all();
-        $insert_data['hari_buka'] = $request->input('hari_buka');
-
+        $arrayTostring = implode(', ', $request->input('hari_buka'));
+        // $insert_data['hari_buka'] = $request->input('hari_buka');
+        $insert_data['hari_buka'] = $arrayTostring;
 
         if($request->hasFile('foto_penjahit')){
             $file = $request->file('foto_penjahit');

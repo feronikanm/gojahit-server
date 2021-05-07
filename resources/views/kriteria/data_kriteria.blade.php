@@ -1,4 +1,5 @@
-@extends('adminlayouts.main_show_page')
+@extends('adminpro.main')
+{{-- @extends('adminlayouts.main_show_page') --}}
 
 @section('title', 'Data Kriteria')
 
@@ -11,6 +12,77 @@
         <div class="row">
             <div class="col-md-12">
             <div class="card">
+
+                <div class="card-header card-header-tabs" data-background-color="purple">
+                    <h4 class="card-title">Data Kriteria</h4>
+                </div>
+
+                <div class="card-content">
+                <div class="table-responsive">
+                    <table id="datatables" class="table table-bordered table-striped">
+                    <thead class="text-primary">
+                        <th class="text-center" style="border-bottom: 1px solid rgb(117, 0, 146);">No</th>
+                        <th style="border-bottom: 1px solid rgb(117, 0, 146);">Nama Kriteria</th>
+                        <th class="text-center" style="border-bottom: 1px solid rgb(117, 0, 146);">Bobot Kriteria</th>
+                        <th class="text-center" style="border-bottom: 1px solid rgb(117, 0, 146);">Normalisasi Bobot Kriteria</th>
+                        <th class="text-center" style="border-bottom: 1px solid rgb(117, 0, 146);">Actions</th>
+                    </thead>
+                    @php
+                        $no = 1;
+                    @endphp
+                    <tbody>   
+                        @foreach ($kriteria as $data_kriteria)
+                            <tr>
+                                <td class="text-center">{{ $no++ }}</td>
+                                <td>{{ $data_kriteria->nama_kriteria }}</td>
+                                <td class="text-center">{{ $data_kriteria->bobot_kriteria }}</td>
+                                {{-- <td class="text-center">{{ $normalisasi }}</td> --}}
+                                {{-- <td class="text-center">{{ $bobot_kriteria/$total_bobot_kriteria }}</td> --}}
+                                {{-- <td class="text-center">{{ $total }}</td> --}}
+
+                                
+                                <td class="text-center">
+                                    @foreach ($normalisasi as $item)
+                                            {{-- {{ $item }} --}}
+                                            {{$value = json_decode ($item)}}                  
+
+                                            {{-- {{ count(explode(",",$item)) }} --}}
+                                    @endforeach
+                                </td>
+
+                                <td class="td-actions text-center">
+                                    <a type="button" rel="tooltip" data-placement="bottom" title="Edit Data" class="btn btn-success" href="/data_kriteria/edit/{{ $data_kriteria->id_kriteria }}"><i class="material-icons">edit</i></a>
+                                </td>
+                                
+                                
+                            </tr>
+                            @endforeach
+                            <thead>
+                                <th class="text-center text-primary" style="border-top: 1px solid rgb(117, 0, 146);" colspan="2">Total</th>
+                                <th class="text-center text-primary" style="border-top: 1px solid rgb(117, 0, 146);">{{ $total_bobot_kriteria }}</th>
+                                <th class="text-center text-primary" style="border-top: 1px solid rgb(117, 0, 146);"></th>
+                                <th class="text-center text-primary" style="border-top: 1px solid rgb(117, 0, 146);"></th>
+                            </thead>
+                    </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        {{-- <div class="row">
+            <div class="col-md-12">
+            <div class="card"> --}}
 
                 {{-- <div class="card-header card-header-tabs card-header-primary">
                     <div class="nav-tabs-navigation">
@@ -25,7 +97,7 @@
                     </div>
                   </div> --}}
 
-                <div class="card-header card-header-primary">
+                {{-- <div class="card-header card-header-primary">
                     <h4 class="card-title ">Data Kriteria</h4>
                 </div>
 
@@ -48,13 +120,13 @@
                             <tr>
                                 <td class="text-center">{{ $no++ }}</td>
                                 <td>{{ $data_kriteria->nama_kriteria }}</td>
-                                <td class="text-center">{{ $data_kriteria->bobot_kriteria }}</td>
+                                <td class="text-center">{{ $data_kriteria->bobot_kriteria }}</td> --}}
                                 {{-- <td class="text-center">{{ $normalisasi }}</td> --}}
                                 {{-- <td class="text-center">{{ $bobot_kriteria/$total_bobot_kriteria }}</td> --}}
                                 {{-- <td class="text-center">{{ $total }}</td> --}}
 
                                 
-                                <td class="text-center">
+                                {{-- <td class="text-center">
                                     @foreach ($normalisasi as $item)
                                             {{ $item }}
                                     @endforeach
@@ -62,7 +134,7 @@
 
                                 <td class="td-actions text-center">
                                     <a type="button" rel="tooltip" data-placement="bottom" title="Edit Data" class="btn btn-success" href="/data_kriteria/edit/{{ $data_kriteria->id_kriteria }}"><i class="material-icons">edit</i></a>
-                                    {{-- <a type="button" rel="tooltip" data-placement="bottom" title="Hapus Data" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')" href="/data_kriteria/delete/{{ $data_kriteria->id_kriteria }}"><i class="material-icons">close</i></a> --}}
+                                    <a type="button" rel="tooltip" data-placement="bottom" title="Hapus Data" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')" href="/data_kriteria/delete/{{ $data_kriteria->id_kriteria }}"><i class="material-icons">close</i></a>
                                 </td>
                                 
                                 
@@ -80,7 +152,9 @@
                 </div>
             </div>
             </div>
-        </div>
+        </div> --}}
+
+
         </div>
     </div>
 

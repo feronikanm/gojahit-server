@@ -1,4 +1,5 @@
-@extends('adminlayouts.main')
+@extends('adminpro.main')
+{{-- @extends('adminlayouts.main') --}}
 
 @section('title', 'Data Pesanan')
 
@@ -16,6 +17,7 @@
                     <h4 class="card-title ">Data Pesanan</h4>
                 </div> --}}
 
+                {{-- ini untuk layout adminlayouts
                 <div class="card-header card-header-tabs card-header-primary">
                     <div class="nav-tabs-navigation">
                     <div class="nav-tabs-wrapper">
@@ -24,16 +26,31 @@
                         <li class="nav-item">
                             <button type="button" class="btn nav-link active" data-toggle="modal" data-target="#exampleModal"><i class="material-icons">add</i> Tambah Data</button>
 
-                            {{-- <a type="button" class="nav-link active" href="/data_pelanggan/add"><i class="material-icons">add</i> Tambah Data</a> --}}
+                            // <a type="button" class="nav-link active" href="/data_pelanggan/add"><i class="material-icons">add</i> Tambah Data</a>
                         </li>
                         </ul>
                     </div>
                     </div>
-                </div>
+                </div> --}}
 
-                <div class="card-body">
-                <div class="table-responsive">
-                    <table id="example1" class="table table-bordered table-striped">
+
+                <div class="card-header card-header-tabs" data-background-color="purple">
+                        
+                  <div class="nav nav-tabs" data-tabs="tabs">
+                      <span class="nav-tabs-title"><h4 style=" text-shadow: 0 2px 5px rgba(33, 33, 33, 0.5); ">Data Pesanan</h4></span>
+                      {{-- <button type="button" class="btn nav-link active" data-toggle="modal" data-target="#exampleModal"><i class="material-icons">add</i> Tambah Data</button> --}}
+
+                      <a type="button" class="btn btn-primary pull-right " href="/data_pelanggan/add"><i class="material-icons">add</i> Tambah Data</a>
+                  </div>
+              </div>
+
+                {{-- <div class="card-body"> --}}
+                <div class="card-content">
+                
+                  <div class="table-responsive">
+                    {{-- <table id="example1" class="table table-bordered table-striped"> --}}
+                    <table id="datatables" class="table table-bordered table-striped">
+
                     <thead class=" text-primary">
                         {{-- <th class="text-center">No</th> --}}
                         <th class="text-center">ID Pesanan</th>
