@@ -33,16 +33,33 @@ class UkuranController extends Controller
         
         $insert_data->nama_ukuran = $request->input('nama_ukuran');
 
+        // if($request->hasFile('gambar_ukuran')){
+        //     $file = $request->file('gambar_ukuran');
+        //     $extension = $file->getClientOriginalExtension();
+        //     $filename = time() . '.' . $extension;
+        //     $file->move('img_ukuran', $filename);
+        //     $insert_data->gambar_ukuran = $filename;
+        // }else{
+        //     return $request;
+        //     $insert_data->gambar_ukuran = '';
+        // }
+
         if($request->hasFile('gambar_ukuran')){
             $file = $request->file('gambar_ukuran');
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
             $file->move('img_ukuran', $filename);
             $insert_data->gambar_ukuran = $filename;
-        }else{
-            return $request;
-            $insert_data->gambar_ukuran = '';
         }
+
+        // if($request->hasFile('gambar_ukuran')){
+        //     $file = $request->file('gambar_ukuran');
+        //     $extension = $file->getClientOriginalExtension();
+        //     $fileName = time() . '.' . $extension;
+        //     $path = $request->file('gambar_ukuran')->move(public_path("img_ukuran"), $fileName);
+        //     $photoURL = url("/img_ukuran/".$fileName);
+        //     $insert_data->gambar_ukuran = $photoURL;
+        // }
 
         $insert_data->save();
 
@@ -60,6 +77,7 @@ class UkuranController extends Controller
 
         $data->nama_ukuran = $request->nama_ukuran;
         
+        
         if($request->hasFile('gambar_ukuran')){
             $file = $request->file('gambar_ukuran');
             $extension = $file->getClientOriginalExtension();
@@ -67,6 +85,15 @@ class UkuranController extends Controller
             $file->move('img_ukuran', $filename);
             $data->gambar_ukuran = $filename;
         }
+
+        // if($request->hasFile('gambar_ukuran')){
+        //     $file = $request->file('gambar_ukuran');
+        //     $extension = $file->getClientOriginalExtension();
+        //     $fileName = time() . '.' . $extension;
+        //     $path = $request->file('gambar_ukuran')->move(public_path("img_ukuran"), $fileName);
+        //     $photoURL = url("/img_ukuran/".$fileName);
+        //     $data->gambar_ukuran = $photoURL;
+        // }
 
         $data->save();
 

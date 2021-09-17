@@ -10,15 +10,16 @@
 <div class="content">
   <div class="container-fluid">
     
-
     <div class="row">
       <div class="col-md-8">
         <div class="card">
               <form method="post" action="/data_pelanggan/update/{{ $data->id_pelanggan }}" enctype="multipart/form-data" class="form-horizontal">
                 {{ csrf_field() }}
+
                 <div class="card-header card-header-tabs" data-background-color="purple">
                     <h4 class="card-title">Edit Data Pelanggan</h4>
                 </div>
+
                 <div class="card-content">
                   
                   <input type="hidden" name="id_pelanggan" id="id_pelanggan" value="{{ $data->id_pelanggan }}">
@@ -144,8 +145,8 @@
 
                   
                 </div>
-                </div>
-            </form>
+              </form>
+            </div>
         </div>
     </div>
 

@@ -63,6 +63,10 @@ Route::put('rating/update/{id_rating}', 'ApiRatingController@update_data_rating'
 Route::delete('rating/delete/{id_rating}', 'ApiRatingController@delete_data_rating');
 //============= Api Data Rating End ==================
 
+//============= Api Data Nilai ==================
+Route::get('nilai', 'ApiNilaiController@get_all_nilai');
+//============= Api Data Nilai End ==================
+
 //============= Api Data Pesanan ==================
 Route::get('pesanan', 'ApiPesananController@get_all_pesanan');
 Route::post('pesanan/insert_data', 'ApiPesananController@insert_data_pesanan');

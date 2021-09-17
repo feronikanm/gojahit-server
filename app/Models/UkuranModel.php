@@ -16,9 +16,6 @@ class UkuranModel extends Model
         'gambar_ukuran',
     ];
 
-
-
-    
     public function tbl_detail_kategori()
     {
         return $this->belongsToMany('App\Models\DetailKategoriModel');

@@ -15,8 +15,10 @@ class ApiRatingController extends Controller
         $insert_rating = new RatingModel;
 
         $insert_rating->id_penjahit = $request->idPenjahit;
-        $insert_rating->id_kriteria = $request->idKriteria;
-        $insert_rating->rating_penjahit = $request->ratingPenjahit;
+        $insert_rating->kriteria_1 = $request->kriteria1;
+        $insert_rating->kriteria_2 = $request->kriteria2;
+        $insert_rating->kriteria_3 = $request->kriteria3;
+        $insert_rating->kriteria_4 = $request->kriteria4;
         $insert_rating->save();
         
         return response([
@@ -34,8 +36,10 @@ class ApiRatingController extends Controller
             $data_rating = RatingModel::find($id);
 
             $data_rating->id_penjahit = $request->idPenjahit;
-            $data_rating->id_kriteria = $request->idKriteria;
-            $data_rating->rating_penjahit = $request->ratingPenjahit;
+            $data_rating->kriteria_1 = $request->kriteria1;
+            $data_rating->kriteria_2 = $request->kriteria2;
+            $data_rating->kriteria_3 = $request->kriteria3;
+            $data_rating->kriteria_4 = $request->kriteria4;
             $data_rating->save();
 
             return response([

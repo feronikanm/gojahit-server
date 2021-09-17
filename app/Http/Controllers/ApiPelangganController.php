@@ -50,23 +50,19 @@ class ApiPelangganController extends Controller
             if($request->hasFile('foto_pelanggan')){
                 $file = $request->file('foto_pelanggan');
                 $extension = $file->getClientOriginalExtension();
-                $fileName = time() . '.' . $extension;
-                $path = $request->file('photo')->move(public_path("img_pelanggan"), $fileName);
-                $photoURL = url('/'.$fileName);
-
-                // $file = $request->file('foto_pelanggan');
-                // $extension = $file->getClientOriginalExtension();
-                // $filename = time() . '.' . $extension;
-                // $file->move('img_pelanggan', $filename);
-                // $photoURL = url('/'.$filename);
-                // $insert_pelanggan->foto_pelanggan = $filename;
-                // $save = DB::table('images')->insert(['image' => $name]);
-                // return response()->json(['url' => $photoURL], 200);
-                $insert_pelanggan->fotoPelanggan = $photoURL;
-            // }else{
-            //     return $request;
-            //     $insert_pelanggan->foto_pelanggan = '';
+                $filename = time() . '.' . $extension;
+                $file->move('img_pelanggan', $filename);
+                $insert_pelanggan->foto_pelanggan = $filename;
             }
+
+            // if($request->hasFile('foto_pelanggan')){
+            //     $file = $request->file('foto_pelanggan');
+            //     $extension = $file->getClientOriginalExtension();
+            //     $fileName = time() . '.' . $extension;
+            //     $path = $request->file('foto_pelanggan')->move(public_path("img_pelanggan"), $fileName);
+            //     $photoURL = url("/img_pelanggan/".$fileName);
+            //     $insert_pelanggan->foto_pelanggan = $photoURL;
+            // }
     
             $insert_pelanggan->save();
     
@@ -77,12 +73,6 @@ class ApiPelangganController extends Controller
                 'data' => $insert_pelanggan,
             ], 200);
         
-
-           
-        
-        
-       
-
     }
 
     public function update_data_pelanggan(Request $request, $id){
@@ -104,7 +94,27 @@ class ApiPelangganController extends Controller
             $data_pelanggan->longitude_pelanggan = $request->longitudePelanggan;
             $data_pelanggan->alamat_pelanggan = $request->alamatPelanggan;
             $data_pelanggan->jk_pelanggan = $request->jkPelanggan;
-            $data_pelanggan->foto_pelanggan = $request->fotoPelanggan;
+            // $data_pelanggan->foto_pelanggan = $request->fotoPelanggan;
+
+            if($request->hasFile('foto_pelanggan')){
+                $file = $request->file('foto_pelanggan');
+                $extension = $file->getClientOriginalExtension();
+                $filename = time() . '.' . $extension;
+                $file->move('img_pelanggan', $filename);
+                $data_pelanggan->foto_pelanggan = $filename;
+            }
+            
+
+            // if($request->hasFile('foto_pelanggan')){
+            //     $file = $request->file('foto_pelanggan');
+            //     $extension = $file->getClientOriginalExtension();
+            //     $fileName = time() . '.' . $extension;
+            //     $path = $request->file('foto_pelanggan')->move(public_path("img_pelanggan"), $fileName);
+            //     $photoURL = url("/img_pelanggan/".$fileName);
+            //     $data_pelanggan->foto_pelanggan = $photoURL;
+            // }
+
+
             $data_pelanggan->save();
 
 
@@ -144,15 +154,15 @@ class ApiPelangganController extends Controller
         }
     }
 
-    public function file(){
-        return response()->download(public_path('img_pelanggan/user.jpg'), 'User Image');
-    }
+    // public function file(){
+    //     return response()->download(public_path('img_pelanggan/user.jpg'), 'User Image');
+    // }
 
-    public function fileSave(Request $request){
-        $fileName = "user_image.jpg";
-        $path = $request->file('photo')->move(public_path("img_pelanggan"), $fileName);
-        $photoURL = url('/'.$fileName);
-        return response()->json(['url' => $photoURL], 200);
-    }
+    // public function fileSave(Request $request){
+    //     $fileName = "user_image.jpg";
+    //     $path = $request->file('photo')->move(public_path("img_pelanggan"), $fileName);
+    //     $photoURL = url('/'.$fileName);
+    //     return response()->json(['url' => $photoURL], 200);
+    // }
 
 }

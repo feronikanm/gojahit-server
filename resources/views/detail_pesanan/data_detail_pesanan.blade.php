@@ -21,7 +21,7 @@
                 </div> --}}
 
                 <div class="card-header card-header-tabs" data-background-color="purple">
-                    <h4 class="card-title">Data Kriteria</h4>
+                    <h4 class="card-title">Data Detail Pesanan</h4>
                 </div>
 
                 {{-- <div class="card-body"> --}}

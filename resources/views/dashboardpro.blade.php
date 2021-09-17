@@ -15,7 +15,7 @@
                         <i class="material-icons">language</i>
                     </div>
                     <div class="card-content">
-                        <h4 class="card-title">Global Sales by Top Locations</h4>
+                        <h4 class="card-title">Halo</h4>
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="table-responsive table-sales">

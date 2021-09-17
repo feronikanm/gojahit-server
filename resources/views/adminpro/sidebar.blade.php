@@ -44,7 +44,7 @@ Tip 3: you can change the color of the sidebar with data-background-color="white
             <li class="nav-item ">
                 <a class="nav-link" href="{{ url('/dashboard') }}">
                     <i class="material-icons">dashboard</i>
-                    <p>Dashboard</p>
+                    <p>Dokumentasi</p>
                 </a>
             </li>
 
@@ -97,12 +97,12 @@ Tip 3: you can change the color of the sidebar with data-background-color="white
                 </a>
             </li>
 
-            <li class="nav-item ">
+            {{-- <li class="nav-item ">
                 <a class="nav-link" href="{{ url('/data_utilitas') }}">
                     <i class="material-icons">bubble_chart</i>
                     <p>Data Utilitas</p>
                 </a>
-            </li>
+            </li> --}}
 
             <li class="nav-item ">
                 <a class="nav-link" href="{{ url('/data_kriteria') }}">
@@ -115,6 +115,13 @@ Tip 3: you can change the color of the sidebar with data-background-color="white
                 <a class="nav-link" href="{{ url('/data_rating') }}">
                     <i class="material-icons">stars</i>
                     <p>Data Rating</p>
+                </a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ url('/data_nilai') }}">
+                    <i class="material-icons">bubble_chart</i>
+                    <p>Data Penilaian</p>
                 </a>
             </li>
 

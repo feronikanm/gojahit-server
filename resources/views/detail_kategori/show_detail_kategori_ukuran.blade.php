@@ -1,4 +1,5 @@
-@extends('adminlayouts.main_show_page')
+@extends('adminpro.main')
+{{-- @extends('adminlayouts.main_show_page') --}}
 
 @section('title', 'Detail Data')
 
@@ -18,13 +19,23 @@
             <div class="col-md-12">
             <div class="card">
 
-                <div class="card-header card-header-tabs  card-header-primary">
+
+                {{-- <div class="card-header card-header-tabs  card-header-primary">
+                    <h4 class="card-title ">Data Penjahit</h4>
+                </div> --}}
+                <div class="card-header card-header-tabs" data-background-color="purple">
                     <h4 class="card-title ">Data Penjahit</h4>
                 </div>
-                <div class="card-body">
+
+                
+
+                {{-- <div class="card-body"> --}}
+                <div class="card-content">
+
                 <div class="table-responsive">
-                    <table id="example1" class="table table-bordered table-striped">
-                    <thead class=" text-primary">
+                    {{-- <table id="example1" class="table table-bordered table-striped"> --}}
+                    <table class="table table-bordered table-striped">
+                        <thead class=" text-primary">
                         <th>Nama Penjahit</th>
                         <th>Nama Toko</th>
                         <th>Alamat Toko</th>
@@ -48,7 +59,17 @@
             <div class="col-md-12">
             <div class="card">
   
-                <div class="card-header card-header-tabs card-header-primary">
+
+                <div class="card-header card-header-tabs" data-background-color="purple">
+                        
+                    <div class="nav nav-tabs" data-tabs="tabs">
+                        <span class="nav-tabs-title"><h4 style=" text-shadow: 0 2px 5px rgba(33, 33, 33, 0.5); ">Detail Kategori</h4></span>
+                        <a type="button" class="btn btn-primary pull-right " onclick="return confirm('Yakin ingin menghapus data ini?')"  href="/data_detail_kategori/delete/{{ $kategori->id_detail_kategori }}"><i class="material-icons">delete</i> Detele</a>
+                        <a type="button" class="btn btn-primary pull-right " href="/data_detail_kategori/edit/{{ $kategori->id_detail_kategori }}"><i class="material-icons">edit</i> Edit</a>
+                    </div>
+                </div>
+
+                {{-- <div class="card-header card-header-tabs card-header-primary">
                     <div class="nav-tabs-navigation">
                       <div class="nav-tabs-wrapper">
                         <span class="nav-tabs-title" style="font-size: 1.125rem;">Detail Kategori</span>
@@ -58,22 +79,18 @@
                           </li>
                           <li class="nav-item">
                             <a type="button" rel="tooltip" data-placement="bottom" title="Hapus Data" class="btn btn-primary ml-3" onclick="return confirm('Yakin ingin menghapus data ini?')" href="/data_detail_kategori/delete/{{ $kategori->id_detail_kategori }}"><i class="material-icons">delete</i> Detele</a>
-
-                            {{-- <a type="button" class="btn btn-primary ml-3" href="/data_penjahit/add"><i class="material-icons">delete</i> Hapus Data</a> --}}
                           </li>
                         </ul>
                       </div>
                     </div>
-                  </div>
+                  </div> --}}
 
 
-                {{-- <div class="card-header card-header-tabs  card-header-primary">
-                    <h4 class="card-title ">Detail Kategori</h4>
-                </div> --}}
-
-                <div class="card-body">
+                {{-- <div class="card-body"> --}}
+                <div class="card-content">
                 <div class="table-responsive">
-                    <table id="example1" class="table table-bordered table-striped">
+                    {{-- <table id="example1" class="table table-bordered table-striped"> --}}
+                    <table class="table table-bordered table-striped">
                     <thead class=" text-primary">
                         <th>Nama Kategori</th>
                         <th>Keterangan</th>
@@ -121,34 +138,37 @@
             <div class="card">
 
 
+                <div class="card-header card-header-tabs" data-background-color="purple">
+                        
+                    <div class="nav nav-tabs" data-tabs="tabs">
+                        <span class="nav-tabs-title"><h4 style=" text-shadow: 0 2px 5px rgba(33, 33, 33, 0.5); ">Detail Ukuran</h4></span>
+                        {{-- <a type="button" class="btn btn-primary pull-right" href="/data_penjahit/add"><i class="material-icons">add</i> Tambah Data</a> --}}
+                        <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#exampleModal"><i class="material-icons">add</i> Tambah Data</button>
 
-                <div class="card-header card-header-tabs card-header-primary  mb-3">
+                    </div>
+                </div>
+
+
+                {{-- <div class="card-header card-header-tabs card-header-primary  mb-3">
                     <div class="nav-tabs-navigation">
                       <div class="nav-tabs-wrapper">
                         <span class="nav-tabs-title" style="font-size: 1.125rem; ">Detail Ukuran</span>
                         <ul class="nav nav-tabs justify-content-end" data-tabs="tabs">
                           <li class="nav-item">
                             <button type="button" rel="tooltip" data-placement="bottom" title="Tambah Data" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="material-icons">add</i> Tambah Data</button>
-                            {{-- <a type="button" rel="tooltip" data-placement="bottom" title="Tambah Data" class="nav-link active" href="#"><i class="material-icons">add</i> Tambah Data</a> --}}
                           </li>
                         </ul>
                       </div>
                     </div>
-                  </div>
+                  </div> --}}
 
-                  {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Launch demo modal
-                  </button> --}}
+                {{-- <div class="card-body"> --}}
+                <div class="card-content">
 
-
-                {{-- <div class="card-header card-header-tabs  card-header-primary">
-                    <h4 class="card-title ">Detail Ukuran</h4>
-                </div> --}}
-
-                <div class="card-body">
                 <div class="table-responsive">
-                    <table id="example1" class="table table-bordered table-striped">
-                    <thead class=" text-primary">
+                    {{-- <table id="example1" class="table table-bordered table-striped"> --}}
+                    <table class="table table-bordered table-striped">
+                        <thead class=" text-primary">
                         <th>Nama Ukuran</th>
                         <th class="text-center">Gambar Ukuran</th>
                         <th class="text-center">Actions</th>
@@ -188,9 +208,9 @@
         <div class="modal-content">
             <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Tambah Data Ukuran</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-            </button>
+            </button> --}}
             </div>
             <div class="modal-body">
 
@@ -201,7 +221,7 @@
                     <input type="hidden" name="id_detail_kategori" id="id_detail_kategori" value="{{ $kategori->id_detail_kategori }}">
                     @endforeach
 
-                    <div class="row">
+                    {{-- <div class="row">
                         <label class="col-sm-2 col-form-label">{{ __('Ukuran') }}</label>
                         <div class="col-sm-7">
                           <div class="form-group" id="exampleFormControlSelect1" >
@@ -212,15 +232,23 @@
                               </select>
                           </div>
                         </div>
-                      </div> 
-                        
-                        {{-- <button type="submit" class="btn btn-primary float-right"></button>
-                        <a type="button" class="btn btn-secondary float-right" href="/data_ukuran">Kembali</a> --}}
+                      </div>  --}}
+
+                    <div>
+                    {{-- <div class="col-lg-5 col-md-6 col-sm-3"> --}}
+                        <div class="form-group" id="exampleFormControlSelect1" >
+                        <select class="selectpicker" data-style="btn btn-primary btn-round" title="Pilih Ukuran" name="id_ukuran">
+                            @foreach ($ukurans as $data_ukuran)
+                                <option value="{{ $data_ukuran->id_ukuran }}">{{ $data_ukuran->nama_ukuran }}</option>
+                            @endforeach
+                        </select>
+                        </div>
+                      </div>
             
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Tambah Data</button>
+                    <button type="button" class="btn btn-simple" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary btn-simple">Tambah Data</button>
                     </div>
                 </form>
 

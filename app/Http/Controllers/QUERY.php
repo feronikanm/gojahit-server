@@ -83,3 +83,75 @@ SELECT penjahit.nama_penjahit FROM detail_kategori
 JOIN penjahit ON penjahit.id_penjahit = detail_kategori.id_penjahit 
 JOIN kategori ON kategori.id_kategori = detail_kategori.id_kategori
 WHERE kategori.id_kategori = 4;
+
+
+
+SELECT id_penjahit, AVG(kriteria_1), AVG(kriteria_2), AVG(kriteria_3), AVG(kriteria_4) FROM RATING GROUP BY id_penjahit
+
+=========
+SELECT id_penjahit, ((kriteria_1-1)/(3-1)) as kriteria_1, ((kriteria_2-1)/(3-1)) as kriteria_2, ((kriteria_3-1)/(3-1)) as kriteria_3, ((kriteria_4-1)/(3-1)) as kriteria_4
+FROM (
+SELECT id_penjahit, AVG(kriteria_1) AS kriteria_1, AVG(kriteria_2) AS kriteria_2, AVG(kriteria_3) AS kriteria_3, AVG(kriteria_4) AS kriteria_4 FROM RATING GROUP BY id_penjahit) AS A
+
+==============
+
+
+insert into nielai (id_pnjahit, kriteria_1, kriteria_2, kriteria_3, kriteria_4)  
+(
+SELECT id_penjahit, ((kriteria_1-1)/(3-1)) as kriteria_1, ((kriteria_2-1)/(3-1)) as kriteria_2, ((kriteria_3-1)/(3-1)) as kriteria_3, ((kriteria_4-1)/(3-1)) as kriteria_4
+FROM 
+    (SELECT id_penjahit, AVG(kriteria_1) AS kriteria_1, AVG(kriteria_2) AS kriteria_2, AVG(kriteria_3) AS kriteria_3, AVG(kriteria_4) AS kriteria_4 FROM RATING GROUP BY id_penjahit) AS A
+)
+
+select id_penjahit, (kriteria_1*(select normalisasi from kriteria WHERE id_kriteria = 1)) AS kriteria_1, 
+(kriteria_2*(select normalisasi from kriteria WHERE id_kriteria = 2)) AS kriteria_2, 
+(kriteria_3*(select normalisasi from kriteria WHERE id_kriteria = 3)) AS kriteria_3, 
+(kriteria_4*(select normalisasi from kriteria WHERE id_kriteria = 4)) AS kriteria_4
+from nilai
+
+
+
+select id_penjahit, (kriteria_1 + kriteria_2 + kriteria_3 + kriteria_4) AS NilaiAkhir
+from (
+select id_penjahit, (kriteria_1*(select normalisasi from kriteria WHERE id_kriteria = 1)) AS kriteria_1, 
+(kriteria_2*(select normalisasi from kriteria WHERE id_kriteria = 2)) AS kriteria_2, 
+(kriteria_3*(select normalisasi from kriteria WHERE id_kriteria = 3)) AS kriteria_3, 
+(kriteria_4*(select normalisasi from kriteria WHERE id_kriteria = 4)) AS kriteria_4
+from nilai ) AS A
+GROUP BY id_penjahit
+ORDER BY (kriteria_1 + kriteria_2 + kriteria_3 + kriteria_4) DESC
+
+
+
+
+
+
+=============
+
+SELECT id_penjahit, (kriteria_1 + kriteria_2 + kriteria_3 + kriteria_4) AS NilaiAkhir
+FROM (
+    SELECT id_penjahit, 
+    (kriteria_1*(select normalisasi from kriteria WHERE id_kriteria = 1)) AS kriteria_1, 
+    (kriteria_2*(select normalisasi from kriteria WHERE id_kriteria = 2)) AS kriteria_2, 
+    (kriteria_3*(select normalisasi from kriteria WHERE id_kriteria = 3)) AS kriteria_3, 
+    (kriteria_4*(select normalisasi from kriteria WHERE id_kriteria = 4)) AS kriteria_4
+    FROM (
+        SELECT id_penjahit, 
+        ((kriteria_1-1)/(3-1)) as kriteria_1, 
+        ((kriteria_2-1)/(3-1)) as kriteria_2, 
+        ((kriteria_3-1)/(3-1)) as kriteria_3, 
+        ((kriteria_4-1)/(3-1)) as kriteria_4
+        FROM (
+            SELECT id_penjahit, 
+            AVG(kriteria_1) AS kriteria_1, 
+            AVG(kriteria_2) AS kriteria_2, 
+            AVG(kriteria_3) AS kriteria_3, 
+            AVG(kriteria_4) AS kriteria_4 
+            FROM RATING 
+            GROUP BY id_penjahit) AS A ) 
+        AS TABLENILAI ) 
+    AS NORMALISASI
+GROUP BY id_penjahit
+ORDER BY (kriteria_1 + kriteria_2 + kriteria_3 + kriteria_4) DESC
+
+

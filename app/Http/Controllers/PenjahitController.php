@@ -141,9 +141,9 @@ class PenjahitController extends Controller
         // $insert_data->jam_tutup = $request->jam_tutup;
 
         $insert_data = $request->all();
-        $arrayTostring = implode(', ', $request->input('hari_buka'));
-        // $insert_data['hari_buka'] = $request->input('hari_buka');
-        $insert_data['hari_buka'] = $arrayTostring;
+        // $arrayTostring = implode(', ', $request->input('hari_buka'));
+        $insert_data['hari_buka'] = $request->input('hari_buka');
+        // $insert_data['hari_buka'] = $arrayTostring;
 
         if($request->hasFile('foto_penjahit')){
             $file = $request->file('foto_penjahit');

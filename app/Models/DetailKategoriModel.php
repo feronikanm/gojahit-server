@@ -27,8 +27,6 @@ class DetailKategoriModel extends Model
     {
         return $this->belongsTo('App\Models\PenjahitModel', 'id_penjahit');
         // return $this->belongsToMany('App\Models\PenjahitModel');
-        
-
     }
 
     public function tbl_kategori()

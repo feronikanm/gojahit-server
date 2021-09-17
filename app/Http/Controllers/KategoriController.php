@@ -33,16 +33,33 @@ class KategoriController extends Controller
         
         $insert_data->nama_kategori = $request->input('nama_kategori');
 
+        // if($request->hasFile('gambar_kategori')){
+        //     $file = $request->file('gambar_kategori');
+        //     $extension = $file->getClientOriginalExtension();
+        //     $filename = time() . '.' . $extension;
+        //     $file->move('img_kategori', $filename);
+        //     $insert_data->gambar_kategori = $filename;
+        // }else{
+        //     return $request;
+        //     $insert_data->gambar_kategori = '';
+        // }
+
         if($request->hasFile('gambar_kategori')){
             $file = $request->file('gambar_kategori');
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
             $file->move('img_kategori', $filename);
             $insert_data->gambar_kategori = $filename;
-        }else{
-            return $request;
-            $insert_data->gambar_kategori = '';
         }
+
+        // if($request->hasFile('gambar_kategori')){
+        //     $file = $request->file('gambar_kategori');
+        //     $extension = $file->getClientOriginalExtension();
+        //     $fileName = time() . '.' . $extension;
+        //     $path = $request->file('gambar_kategori')->move(public_path("img_kategori"), $fileName);
+        //     $photoURL = url("/img_kategori/".$fileName);
+        //     $insert_data->gambar_kategori = $photoURL;
+        // }
 
         $insert_data->save();
 
@@ -74,6 +91,15 @@ class KategoriController extends Controller
             $file->move('img_kategori', $filename);
             $data->gambar_kategori = $filename;
         }
+
+        // if($request->hasFile('gambar_kategori')){
+        //     $file = $request->file('gambar_kategori');
+        //     $extension = $file->getClientOriginalExtension();
+        //     $fileName = time() . '.' . $extension;
+        //     $path = $request->file('gambar_kategori')->move(public_path("img_kategori"), $fileName);
+        //     $photoURL = url("/img_kategori/".$fileName);
+        //     $data->gambar_kategori = $photoURL;
+        // }
 
         $data->save();
 

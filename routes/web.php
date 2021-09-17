@@ -129,6 +129,9 @@ Route::post('/data_rating/update/{id}', 'RatingController@update');
 Route::get('/data_rating/delete/{id}', 'RatingController@destroy');
 //============ Rating END ============
 
+//============ Nilai ============
+Route::get('/data_nilai', 'NilaiController@index');
+//============ Nilai END ============
 
 //============ Ukuran ============
 Route::get('/data_ukuran', 'UkuranController@index');
@@ -149,14 +152,14 @@ Route::post('/data_utilitas/update/{id}', 'UtilitasController@update');
 Route::get('/data_utilitas/delete/{id}', 'UtilitasController@destroy');
 //============ Utilitas END ============
 
-//============ Utilitas ============
+//============ Kriteria ============
 Route::get('/data_kriteria', 'KriteriaController@index');
 Route::get('/data_kriteria/add', 'KriteriaController@create');
 Route::post('/data_kriteria/store', 'KriteriaController@store');
 Route::get('/data_kriteria/edit/{id}', 'KriteriaController@edit');
 Route::post('/data_kriteria/update/{id}', 'KriteriaController@update');
 Route::get('/data_kriteria/delete/{id}', 'KriteriaController@destroy');
-//============ Utilitas END ============
+//============ Kriteria END ============
 
 //============ Ukuran Detail Kategori ============
 Route::get('/data_ukuran_detail_kategori', 'UkuranDetailKategoriController@index');

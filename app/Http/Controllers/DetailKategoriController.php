@@ -36,6 +36,8 @@ class DetailKategoriController extends Controller
         ->orderBy('kategori.nama_kategori', 'asc')
         // ->groupBy('detail_kategori.id_detail_kategori')
         ->get();
+
+        // dd($detail_kategori);
         
         return view('detail_kategori.data_detail_kategori', compact('detail_kategori', 'penjahit', 'kategori_penjahit'));
     }

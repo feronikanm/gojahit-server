@@ -16,7 +16,8 @@ class CreateKriteriaTable extends Migration
         Schema::create('kriteria', function (Blueprint $table) {
             $table->increments('id_kriteria');
             $table->string('nama_kriteria')->nullable();
-            $table->integer('bobot_kriteria')->unsigned()->nullable();    
+            $table->integer('bobot_kriteria')->unsigned()->nullable(); 
+            $table->double('normalisasi')->nullable();   
         });
     }
 

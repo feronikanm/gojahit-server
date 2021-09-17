@@ -8,7 +8,13 @@ use App\Models\PenjahitModel;
 class ApiPenjahitController extends Controller
 {
     public function get_all_penjahit(){
-        return response()->json(PenjahitModel::all(), 200);
+        // return response()->json(PenjahitModel::all(), 200);
+
+        $response = DB::table('penjahit')
+        ->join('penjahit', 'penjahit.id_penjahit', '=', 'nilai.id_penjahit')
+        ->orderBy('nilai.nilai_akhir', 'desc')
+        ->get();
+        return response()->json($response, 200);
     }
 
     public function insert_data_penjahit(Request $request){
@@ -41,16 +47,37 @@ class ApiPenjahitController extends Controller
             $insert_penjahit->hari_buka = $request->hariBuka;
             $insert_penjahit->jam_buka = $request->jamBuka;
             $insert_penjahit->jam_tutup = $request->jamTutup;
-            $insert_penjahit->foto_penjahit = $request->fotoPenjahit;
+            // $insert_penjahit->foto_penjahit = $request->fotoPenjahit;
+            
+            
+            if($request->hasFile('foto_penjahit')){
+                $file = $request->file('foto_penjahit');
+                $extension = $file->getClientOriginalExtension();
+                $filename = time() . '.' . $extension;
+                $file->move('img_penjahit', $filename);
+                $insert_penjahit->foto_penjahit = $filename;
+            }
+            
+            // if($request->hasFile('foto_penjahit')){
+            //     $file = $request->file('foto_penjahit');
+            //     $extension = $file->getClientOriginalExtension();
+            //     $fileName = time() . '.' . $extension;
+            //     $path = $request->file('foto_penjahit')->move(public_path("img_penjahit"), $fileName);
+            //     $photoURL = url("/img_penjahit/".$fileName);
+            //     $insert_penjahit->foto_penjahit = $photoURL;
+            // }
+
+            
+
             $insert_penjahit->save();
 
-        //     return response([
-        //         'status' => 'OK',
-        //         'message' => 'Data Berhasil Ditambahkan',
-        //         'data' => $insert_penjahit,
-        //     ], 200);
+            return response([
+                'status' => 'OK',
+                'message' => 'Data Berhasil Ditambahkan',
+                'data' => $insert_penjahit,
+            ], 200);
 
-        // }
+        
 
 
        
@@ -79,7 +106,25 @@ class ApiPenjahitController extends Controller
             $data_penjahit->hari_buka = $request->hariBuka;
             $data_penjahit->jam_buka = $request->jamBuka;
             $data_penjahit->jam_tutup = $request->jamTutup;
-            $data_penjahit->foto_penjahit = $request->fotoPenjahit;
+            // $data_penjahit->foto_penjahit = $request->fotoPenjahit;
+
+            if($request->hasFile('foto_penjahit')){
+                $file = $request->file('foto_penjahit');
+                $extension = $file->getClientOriginalExtension();
+                $filename = time() . '.' . $extension;
+                $file->move('img_penjahit', $filename);
+                $data_penjahit->foto_penjahit = $filename;
+            }
+
+            // if($request->hasFile('foto_penjahit')){
+            //     $file = $request->file('foto_penjahit');
+            //     $extension = $file->getClientOriginalExtension();
+            //     $fileName = time() . '.' . $extension;
+            //     $path = $request->file('foto_penjahit')->move(public_path("img_penjahit"), $fileName);
+            //     $photoURL = url("/img_penjahit/".$fileName);
+            //     $data_penjahit->foto_penjahit = $photoURL;
+            // }
+
             $data_penjahit->save();
 
             return response([

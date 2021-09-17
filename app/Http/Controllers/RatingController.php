@@ -22,41 +22,14 @@ class RatingController extends Controller
         $penjahit = PenjahitModel::all();
         $kriteria = KriteriaModel::all();
 
-
-        $rating_penjahit = DB::table('penjahit')
-        ->join('rating', function($join)
+        $rating_penjahit = DB::table('rating')
+        ->join('penjahit', function($join)
         {
-            $join->on('penjahit.id_penjahit', '=', 'rating.id_penjahit');
-        })
-        ->join('kriteria', function($join)
-        {
-            $join->on('kriteria.id_kriteria', '=', 'rating.id_kriteria');
+            $join->on('rating.id_penjahit', '=', 'penjahit.id_penjahit');
         })
         ->get();
 
-
-        $nilai_terbanyak = DB::table('rating')
-        ->select('rating_penjahit')
-        ->groupBy('rating_penjahit')
-        ->orderByRaw('COUNT(*) DESC')
-        ->limit(1)
-        ->get();
-
-        // $total_rating = DB::table('penjahit')
-        // ->join('rating', function($join)
-        // {
-        //     $join->on('penjahit.id_penjahit', '=', 'rating.id_penjahit');
-        // })
-        // ->join('kriteria', function($join)
-        // {
-        //     $join->on('kriteria.id_kriteria', '=', 'rating.id_kriteria');
-        // })
-        // ->where('kriteria.id_kriteria', '=', 3)
-        // ->sum('rating.rating_penjahit');
-
-
-        // return view('rating.data_rating', ['rating' => $rating, 'penjahit' => $penjahit, 'kriteria' => $kriteria]);
-        return view('rating.data_rating', compact('rating', 'penjahit', 'kriteria', 'rating_penjahit', 'nilai_terbanyak'));
+        return view('rating.data_rating', compact('rating_penjahit'));
     }
 
     public function create(){

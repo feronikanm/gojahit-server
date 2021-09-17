@@ -124,15 +124,15 @@
                   </div>
                 </div> --}}
 
-                <div class="row">
+                {{-- <div class="row">
                   <label class="col-sm-4 col-form-label text-primary">{{ __('Hari Buka') }}</label>
-                  @foreach ($hari_buka as $hari_bukan)
+                  @foreach ($data->hari_buka as $hari_bukan)
                     <div class="col-sm-8">
-                        {{ $hari_bukan->hari_buka }}
-                        {{-- {{$value = json_decode ($hari_bukan->hari_buka)}}                   --}}
+                        {{ $hari_bukan }}
+                        {{$value = json_decode ($hari_bukan->hari_buka)}}                  
                     </div>
                     @endforeach
-                </div>
+                </div> --}}
 
                 <div class="row">
                   <label class="col-sm-4 col-form-label text-primary">{{ __('Jam Buka') }}</label>

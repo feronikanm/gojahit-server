@@ -10,6 +10,10 @@ class PenjahitModel extends Model
     public $timestamps = false;
     protected $primaryKey = 'id_penjahit';
 
+    // protected $casts = [
+    //     'hari_buka' => 'array',
+    // ];
+
     protected $fillable = [
         'id_penjahit',
         'nama_penjahit',
@@ -30,15 +34,15 @@ class PenjahitModel extends Model
     ];
 
 
-    // public function setHariBukaAttribute($value)
-    // {
-    //     $this->attributes['hari_buka'] = json_encode($value);
-    // }
+    public function setHariBukaAttribute($value)
+    {
+        $this->attributes['hari_buka'] = json_encode($value);
+    }
 
-    // public function getHariBukaAttribute($value)
-    // {
-    //     return $this->attributes['hari_buka'] = json_decode($value);
-    // }
+    public function getHariBukaAttribute($value)
+    {
+        return $this->attributes['hari_buka'] = json_decode($value);
+    }
 
 
     public function tbl_pesanan()
@@ -50,7 +54,6 @@ class PenjahitModel extends Model
     {
         return $this->hasMany('App\Models\DetailKategoriModel', 'id_penjahit');
         // return $this->belongsToMany('App\Models\DetailKategoriModel', 'detail_kategori',  'id_penjahit', 'id_kategori');
-
     }
 
     public function tbl_rating()
@@ -62,6 +65,11 @@ class PenjahitModel extends Model
     {
         return $this->belongsToMany('App\Models\KategoriModel', 'detail_kategori', 'id_penjahit', 'id_kategori');
         // return $this->hasMany('App\Models\KategoriModel', 'id_kategori');
+    }
+
+    public function tbl_nilai()
+    {
+        return $this->hasMany('App\Models\NilaiModel', 'id_penjahit');
     }
 
 }

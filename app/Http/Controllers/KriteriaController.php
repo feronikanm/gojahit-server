@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\KriteriaModel;
+
 use Illuminate\Support\Facades\DB;
 
 class KriteriaController extends Controller
@@ -37,34 +38,23 @@ class KriteriaController extends Controller
         // $bobot_kriteria = DB::table('kriteria')->select('bobot_kriteria')->get();
         $bobot_kriteria = DB::table('kriteria')->pluck('bobot_kriteria');
 
-        // $name = DB::table('users')->where('name', 'John')->pluck('name');
-
         $total_bobot_kriteria = DB::table('kriteria')->sum('kriteria.bobot_kriteria');
 
-        // $total = $bobot_kriteria / $total_bobot_kriteria;
-
-        // $bobot_kriteria=import::pluck('bobot_kriteria')->toArray();
-
-        // foreach($bobot_kriteria as $key=>$value)          
+        // $normalisasi = array();
+        // foreach($bobot_kriteria as $value)          
         // {              
-        //   $normalisasi=$value/$total_bobot_kriteria;
+        //   $total = $value/$total_bobot_kriteria;
+        //   array_push($normalisasi, $total);
         // }
 
-        $normalisasi = array();
-        foreach($bobot_kriteria as $value)          
-        {              
-          $total = $value/$total_bobot_kriteria;
-          array_push($normalisasi, $total);
+        foreach ($kriteria as $key => $value) {
+            $kriteria[$key]->normalisasi = $value->bobot_kriteria / $total_bobot_kriteria;
+            $kriteria[$key]->save(); 
+
         }
 
-        // $quotation = array('quotation'=>json_decode($request->quotation));
-
-        // if ($bobot_kriteria->count() > 0){
-        //     $normalisasi = ($bobot_kriteria/$total_bobot_kriteria);
-        // }
-        
-        // dd($normalisasi);
-        return view('kriteria.data_kriteria', compact('kriteria', 'total_bobot_kriteria', 'bobot_kriteria', 'normalisasi', 'total'));
+        // return view('kriteria.data_kriteria', compact('kriteria', 'total_bobot_kriteria', 'bobot_kriteria', 'normalisasi', 'total'));
+        return view('kriteria.data_kriteria', compact('kriteria', 'total_bobot_kriteria'));
     }
 
     public function create(){
@@ -81,6 +71,13 @@ class KriteriaController extends Controller
 
         // return redirect()->back();
         return redirect('/data_kriteria')->with('success', 'Data kriteria Berhasil Ditambahkan');
+    }
+
+    public function get_data_utilitas(){
+
+        $utilitas = UtilitasModel::all();
+
+        return view('kriteria.edit_data_kriteria', compact('utilitas'));
     }
 
     public function edit($id){
@@ -105,4 +102,5 @@ class KriteriaController extends Controller
 
         return redirect('/data_kriteria')->with('success', 'Data kriteria Berhasil Diupdate');
     }
+    
 }

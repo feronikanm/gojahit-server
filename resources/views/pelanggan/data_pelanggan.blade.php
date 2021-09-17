@@ -96,7 +96,7 @@
     
 @endsection
 
-
+{{-- 
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -128,11 +128,6 @@
                             <tr>
                                 <td class="text-center">{{ $no++ }}</td>
                                 <td>{{ $data_pelanggan->nama_pelanggan }}</td>
-                                {{-- <td>{{ $data_pelanggan->jk_pelanggan }}</td> --}}
-                                {{-- <td>
-                                    <img src="{{ url('img_pelanggan/'.$data_pelanggan->foto_pelanggan) }}" style="width: 120px; height: 120px; border-radius: 10px;" class="card-img-top mb-3" alt="...">
-                                </td> --}}
-                                
                                 <td class="td-actions text-center">
                                     
                                         <a type="button" rel="tooltip" data-placement="bottom" title="Lihat Data" class="btn btn-info" href="/data_pelanggan/show/{{ $data_pelanggan->id_pelanggan }}"><i class="material-icons">person</i></a>
@@ -147,11 +142,8 @@
                     </table>
                 </div>
             </div>
-            <!-- end content-->
         </div>
-        <!--  end card  -->
     </div>
-    <!-- end col-md-12 -->
 </div>
 
 
@@ -170,9 +162,7 @@
                     <label class="col-sm-2 label-on-left">Nama</label>
                     <div class="col-sm-7">
                         <div class="form-group label-floating is-empty">
-                            {{-- <label class="control-label"></label> --}}
                             <input class="form-control" name="nama_pelanggan" type="text" placeholder="your name"  autofocus />
-                            {{-- <span class="help-block">A block of help text that breaks onto a new line.</span> --}}
                         </div>
                     </div>
                 </div>
@@ -297,6 +287,6 @@
             </div>
         </div>
     </div>
-  </div>
+  </div> --}}
 
   
