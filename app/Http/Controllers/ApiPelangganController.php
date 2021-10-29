@@ -115,6 +115,13 @@ class ApiPelangganController extends Controller
             // }
 
 
+        // $fileName = "user_image.jpg";
+        // $path = $request->file('photo')->move(public_path("img_pelanggan"), $fileName);
+        // $photoURL = url('/'.$fileName);
+        // return response()->json(['url' => $photoURL], 200);
+    
+
+
             $data_pelanggan->save();
 
 
