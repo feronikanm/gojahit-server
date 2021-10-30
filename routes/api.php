@@ -45,7 +45,7 @@ Route::get('pelanggan', 'ApiPelangganController@get_all_pelanggan');
 Route::get('file', 'ApiPelangganController@file');
 Route::post('file', 'ApiPelangganController@fileSave');
 Route::post('pelanggan/insert_data', 'ApiPelangganController@insert_data_pelanggan');
-Route::put('pelanggan/update/{id_pelanggan}', 'ApiPelangganController@update_data_pelanggan');
+Route::post('pelanggan/update/{id_pelanggan}', 'ApiPelangganController@update_data_pelanggan');
 Route::delete('pelanggan/delete/{id_pelanggan}', 'ApiPelangganController@delete_data_pelanggan');
 //============= Api Data Pelanggan End ==================
 
