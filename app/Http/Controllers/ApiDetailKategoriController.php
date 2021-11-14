@@ -3,12 +3,41 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\models\DetailKategoriModel;
+use Illuminate\Support\Facades\DB;
+use App\Models\DetailKategoriModel;
 
 class ApiDetailKategoriController extends Controller
 {
     public function get_all_detail_kategori(){
-        return response()->json(DetailKategoriModel::all(), 200);
+
+        $detail_kategori = DetailKategoriModel::all();
+        
+        return response()-> json($detail_kategori, 200);
+
+        // return response()->json(DetailKategoriModel::all(), 200);
+    }
+
+    public function get_data_by_kategori($id){
+
+        $response = DB::table('detail_kategori')
+        ->join('penjahit', 'penjahit.id_penjahit', '=', 'detail_kategori.id_penjahit')
+        ->join('kategori', 'kategori.id_kategori', '=', 'detail_kategori.id_kategori')
+        ->join('nilai', 'nilai.id_penjahit', '=', 'penjahit.id_penjahit')
+        ->orderBy('nilai.nilai_akhir', 'desc')
+        ->where('kategori.id_kategori', '=', $id)
+        ->get();
+
+        return response()->json($response, 200);
+    }
+
+    public function get_data_kategori_by_penjahit($id){
+        $response = DB::table('detail_kategori')
+        ->join('penjahit', 'penjahit.id_penjahit', '=', 'detail_kategori.id_penjahit')
+        ->join('kategori', 'kategori.id_kategori', '=', 'detail_kategori.id_kategori')
+        ->where('penjahit.id_penjahit', '=', $id)
+        ->get();
+
+        return response()->json($response, 200);
     }
 
     public function insert_data_detail_kategori(Request $request){

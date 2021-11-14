@@ -155,3 +155,17 @@ GROUP BY id_penjahit
 ORDER BY (kriteria_1 + kriteria_2 + kriteria_3 + kriteria_4) DESC
 
 
+
+SELECT * FROM detail_kategori 
+JOIN penjahit ON penjahit.id_penjahit = detail_kategori.id_penjahit 
+JOIN kategori ON kategori.id_kategori = detail_kategori.id_kategori
+JOIN nilai ON nilai.id_penjahit = penjahit.id_penjahit
+WHERE kategori.id_kategori = 2
+
+
+SELECT * FROM ukuran_detail_kategori
+JOIN detail_kategori ON detail_kategori.id_detail_kategori = ukuran_detail_kategori.id_detail_kategori 
+JOIN kategori ON kategori.id_kategori = detail_kategori.id_kategori
+JOIN ukuran ON ukuran.id_ukuran = ukuran_detail_kategori.id_ukuran
+WHERE ukuran_detail_kategori.id_detail_kategori = 9
+

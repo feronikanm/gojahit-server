@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\UkuranDetailKategoriModel;
 
 class ApiUkuranDetailKategoriController extends Controller
@@ -10,6 +11,18 @@ class ApiUkuranDetailKategoriController extends Controller
     
     public function get_all_data(){
         return response()->json(UkuranDetailKategoriModel::all(), 200);
+    }
+
+    public function get_ukuran_by_detail_kategori($id){
+
+        $response = DB::table('ukuran_detail_kategori')
+        ->join('detail_kategori', 'detail_kategori.id_detail_kategori', '=', 'ukuran_detail_kategori.id_detail_kategori')
+        ->join('kategori', 'kategori.id_kategori', '=', 'detail_kategori.id_kategori')
+        ->join('ukuran', 'ukuran.id_ukuran', '=', 'ukuran_detail_kategori.id_ukuran')
+        ->where('ukuran_detail_kategori.id_detail_kategori', '=', $id)
+        ->get();
+
+        return response()->json($response, 200);
     }
 
     public function insert_data(Request $request){
