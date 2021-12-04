@@ -34,53 +34,28 @@
                 <table id="datatables" class="table">
 
                 <thead class=" text-primary">
-                    {{-- <th class="text-center">No</th> --}}
-                    <th class="text-center">ID Detail Pesanan</th>
+                    <th class="text-center">No</th>
+                    <th class="text-center">ID Pesanan</th>
                     <th>Kategori</th>
                     <th>Nama Ukuran</th>
                     <th>Ukuran</th>
                     <th class="text-right">Actions</th>
                 </thead>
-                {{-- @php
+                @php
                     $no = 1;
-                @endphp --}}
+                @endphp
                 <tbody>   
-                    @foreach ($detail_pesanan as $data_detail_pesanan)
                         <tr>
-                            {{-- <td class="text-center">{{ $no++ }}</td> --}}
-                            <td class="text-center">{{ $data_detail_pesanan->id_detail_pesanan }}</td>
-                            <td>{{ $data_detail_pesanan->kategori }}</td>
+                            <td class="text-center">{{ $no++ }}</td>
+                            <td class="text-center"></td>
+                            <td></td>
 
-                            <td>
-                                @foreach ($data_detail_pesanan->tbl_ukuran_detail_pesanan as $data_ukuran)
-                                    <li>
-                                        {{ $data_ukuran->nama_ukuran }}
-                                    </li>
-                                @endforeach
-                            </td>
+                            <td></td>
 
-                            <td>
-                                @foreach ($data_detail_pesanan->tbl_ukuran_detail_pesanan as $data_ukuran)
-                                    <li>
-                                        {{ $data_ukuran->ukuran_pesanan }}
-                                    </li>    
-                                @endforeach
-                            </td>
+                            <td></td>
                             
-                            <td class="td-actions text-right">
-                                @foreach ($data_detail_pesanan->tbl_ukuran_detail_pesanan as $data_ukuran)
-                                <form action="#" method="POST">
-                                    <button type="button" rel="tooltip" class="btn btn-success">
-                                        <i class="material-icons">edit</i>
-                                    </button>
-                                    <button type="button" rel="tooltip" class="btn btn-danger">
-                                        <i class="material-icons">close</i>
-                                    </button>
-                                </form>
-                                @endforeach
-                            </td> 
+                            <td class="td-actions text-right"></td> 
                         </tr>
-                        @endforeach
                 </tbody>
                 </table>
             </div>

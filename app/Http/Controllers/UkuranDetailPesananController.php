@@ -18,9 +18,8 @@ class UkuranDetailPesananController extends Controller
 
         //mengambil data dari tabel film
         $ukuran_detail_pesanan = UkuranDetailPesananModel::all();
-        $detail_pesanan = DetailPesananModel::all();
 
-        return view('ukuran_detail_pesanan.data_ukuran_detail_pesanan', compact('ukuran_detail_pesanan', 'detail_pesanan'));
+        return view('ukuran_detail_pesanan.data_ukuran_detail_pesanan', compact('ukuran_detail_pesanan'));
     }
 
     public function create(){

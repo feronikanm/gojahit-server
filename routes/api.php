@@ -42,6 +42,7 @@ Route::post('utilitas/delete/{id_utilitas}', 'ApiUtilitasController@delete_data_
 
 //============= Api Data Pelanggan ==================
 Route::get('pelanggan', 'ApiPelangganController@get_all_pelanggan');
+Route::get('pelanggan/{id_pelanggan}', 'ApiPelangganController@get_data_pelanggan_by_id');
 Route::get('file', 'ApiPelangganController@file');
 Route::post('file', 'ApiPelangganContoroller@fileSave');
 Route::post('pelanggan/insert_data', 'ApiPelangganController@insert_data_pelanggan');
@@ -69,6 +70,9 @@ Route::get('nilai', 'ApiNilaiController@get_all_nilai');
 
 //============= Api Data Pesanan ==================
 Route::get('pesanan', 'ApiPesananController@get_all_pesanan');
+Route::get('pesanan/{id_pesanan}', 'ApiPesananController@get_data_pesanan_by_id');
+Route::get('pesanan/pelanggan/{id_pelanggan}', 'ApiPesananController@get_data_pesanan_by_pelanggan');
+Route::get('pesanan/penjahit/{id_penjahit}', 'ApiPesananController@get_data_pesanan_by_penjahit');
 Route::post('pesanan/insert_data', 'ApiPesananController@insert_data_pesanan');
 Route::post('pesanan/update/{id_pesanan}', 'ApiPesananController@update_data_pesanan');
 Route::post('pesanan/delete/{id_pesanan}', 'ApiPesananController@delete_data_pesanan');
@@ -94,13 +98,14 @@ Route::post('detail_pesanan/delete/{id_detail_pesanan}', 'ApiDetailPesananContro
 Route::get('ukuran_detail_kategori', 'ApiUkuranDetailKategoriController@get_all_data');
 Route::get('ukuran_detail_kategori/get_detail_kategori/{id_detail_kategori}', 'ApiUkuranDetailKategoriController@get_ukuran_by_detail_kategori');
 Route::post('ukuran_detail_kategori/insert_data', 'ApiUkuranDetailKategoriController@insert_data');
-Route::post('ukuran_detail_kategori/update/{id_detail_pesanan}', 'ApiUkuranDetailKategoriController@update_data');
-Route::post('ukuran_detail_kategori/delete/{id_detail_pesanan}', 'ApiUkuranDetailKategoriController@delete_data');
+Route::post('ukuran_detail_kategori/update/{id_ukuran_detail_kategori}', 'ApiUkuranDetailKategoriController@update_data');
+Route::post('ukuran_detail_kategori/delete/{id_ukuran_detail_kategori}', 'ApiUkuranDetailKategoriController@delete_data');
 //============= Api Data Ukuran Detail Kategori End ==================
 
 //============= Api Data Ukuran Detail Pesanan ==================
 Route::get('ukuran_detail_pesanan', 'ApiUkuranDetailPesananController@get_all_data');
+Route::get('ukuran_detail_pesanan/pesanan/{id_pesanan}', 'ApiUkuranDetailPesananController@get_data_ukuran_by_pesanan');
 Route::post('ukuran_detail_pesanan/insert_data', 'ApiUkuranDetailPesananController@insert_data');
-Route::post('ukuran_detail_pesanan/update/{id_detail_pesanan}', 'ApiUkuranDetailPesananController@update_data');
-Route::post('ukuran_detail_pesanan/delete/{id_detail_pesanan}', 'ApiUkuranDetailPesananController@delete_data');
+Route::post('ukuran_detail_pesanan/update/{id_ukuran_detail_pesanan}', 'ApiUkuranDetailPesananController@update_data');
+Route::post('ukuran_detail_pesanan/delete/{id_ukuran_detail_pesanan}', 'ApiUkuranDetailPesananController@delete_data');
 //============= Api Data Ukuran Detail Pesanan End ==================

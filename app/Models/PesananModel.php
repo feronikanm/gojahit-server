@@ -14,18 +14,26 @@ class PesananModel extends Model
         'id_pesanan',
         'id_pelanggan',
         'id_penjahit',
+        'id_detail_kategori',
         'tanggal_pesanan',
         'tanggal_pesanan_selesai',
         'lama_waktu_pengerjaan',
+        'catatan_pesanan',
+        'desain_jahitan',
+        'kategori',
+        'bahan_jahit',
+        'asal_bahan',
+        'panjang_bahan',
+        'lebar_bahan',
+        'status_bahan',
+        'harga_bahan',
+        'ongkos_penjahit',
+        'jumlah_jahitan',
+        'biaya_jahitan',
+        'total_biaya',
         'status_pesanan',
     ];
 
-
-    
-    public function tbl_detail_pesanan()
-    {
-        return $this->hasMany('App\Models\DetailPesananModel', 'id_pesanan');
-    }
     
     public function tbl_pelanggan()
     {

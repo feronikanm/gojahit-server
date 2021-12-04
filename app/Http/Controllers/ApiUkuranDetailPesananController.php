@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\UkuranDetailPesananModel;
 
 class ApiUkuranDetailPesananController extends Controller
@@ -11,12 +12,21 @@ class ApiUkuranDetailPesananController extends Controller
         public function get_all_data(){
             return response()->json(UkuranDetailPesananModel::all(), 200);
         }
+
+        public function get_data_ukuran_by_pesanan($id){
+            $response = DB::table('ukuran_detail_pesanan')
+            ->join('ukuran', 'ukuran.id_ukuran', '=', 'ukuran_detail_pesanan.id_ukuran')
+            ->where('ukuran_detail_pesanan.id_pesanan', '=', $id)
+            ->get();
+    
+            return response()->json($response, 200);
+        }
     
         public function insert_data(Request $request){
             $insert_data = new UkuranDetailPesananModel;
     
-            $insert_data->id_detail_pesanan = $request->idDetailPesanan;
-            $insert_data->nama_ukuran = $request->namaUkuran;
+            $insert_data->id_pesanan = $request->idPesanan;
+            $insert_data->id_ukuran = $request->idUkuran;
             $insert_data->ukuran_pesanan = $request->ukuranPesanan;
             $insert_data->save();
     
@@ -34,8 +44,8 @@ class ApiUkuranDetailPesananController extends Controller
                 //echo 'data yang anda cari tersedia'
                 $data = UkuranDetailPesananModel::find($id);
     
-                $data->id_detail_pesanan = $request->idDetailPesanan;
-                $data->nama_ukuran = $request->namaUkuran;
+                $data->id_pesanan = $request->idPesanan;
+                $data->id_ukuran = $request->idUkuran;
                 $data->ukuran_pesanan = $request->ukuranPesanan;
                 $data->save();
                 

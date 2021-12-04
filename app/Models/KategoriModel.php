@@ -16,12 +16,6 @@ class KategoriModel extends Model
         'gambar_kategori',
     ];
 
-
-    public function tbl_detail_kategori()
-    {
-        return $this->belongsTo('App\Models\DetailKategoriModel', 'id_kategori');
-    }
-
     public function tbl_penjahit()
     {
         return $this->hasMany('App\Models\PenjahitModel');

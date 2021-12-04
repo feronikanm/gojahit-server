@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\PelangganModel;
 
 class ApiPelangganController extends Controller
@@ -15,6 +16,14 @@ class ApiPelangganController extends Controller
         //     response()->download(public_path('img_pelanggan/'.$data_pelanggan->foto_pelanggan), 'User Image');
         // }
         return response()->json($pelanggan, 200);
+    }
+
+    public function get_data_pelanggan_by_id($id){
+        $response = DB::table('pelanggan')
+        ->where('pelanggan.id_pelanggan', '=', $id)
+        ->get();
+
+        return response()->json($response, 200);
     }
 
     // public function img_pelanggan(){

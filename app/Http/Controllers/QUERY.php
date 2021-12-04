@@ -169,3 +169,10 @@ JOIN kategori ON kategori.id_kategori = detail_kategori.id_kategori
 JOIN ukuran ON ukuran.id_ukuran = ukuran_detail_kategori.id_ukuran
 WHERE ukuran_detail_kategori.id_detail_kategori = 9
 
+
+SELECT * FROM pesanan
+WHERE pesanan.id_pelanggan = 1
+
+SELECT * FROM ukuran_detail_pesanan
+JOIN ukuran ON ukuran.id_ukuran = ukuran_detail_pesanan.id_ukuran
+WHERE ukuran_detail_pesanan.id_pesanan = 5

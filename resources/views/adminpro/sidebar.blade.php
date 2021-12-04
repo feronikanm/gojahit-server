@@ -85,16 +85,16 @@ Tip 3: you can change the color of the sidebar with data-background-color="white
 
             <li class="nav-item ">
                 <a class="nav-link" href="{{ url('/data_pesanan') }}">
-                    <i class="material-icons">layers</i>
+                    <i class="material-icons">shopping_cart</i>
                     <p>Data Pesanan</p>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link" href="{{ url('/data_detail_pesanan') }}">
-                    <i class="material-icons">shopping_cart</i>
-                    <p>Data Detail Pesanan</p>
-                </a>
+                <a class="nav-link" href="{{ url('/data_ukuran_detail_pesanan') }}">
+                    <i class="material-icons">layers</i>
+                    <p>Data Ukuran Pesanan</p>
+                </a>  
             </li>
 
             {{-- <li class="nav-item ">

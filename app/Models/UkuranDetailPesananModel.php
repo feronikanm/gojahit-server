@@ -12,13 +12,18 @@ class UkuranDetailPesananModel extends Model
 
     protected $fillable = [
         'id_ukuran_detail_pesanan',
-        'id_detail_pesanan',
-        'nama_ukuran',
+        'id_pesanan',
+        'id_ukuran',
         'ukuran_pesanan',
     ];
 
-    public function tbl_detail_pesanan()
+    public function tbl_pesanan()
     {
-        return $this->belongsTo('App\Models\DetailPesananModel', 'id_detail_pesanan');
+        return $this->belongsTo('App\Models\PesananModel', 'id_pesanan');
+    }
+
+    public function tbl_ukuran()
+    {
+        return $this->belongsTo('App\Models\UkuranModel', 'id_ukuran');
     }
 }
