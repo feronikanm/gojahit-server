@@ -19,6 +19,15 @@ class ApiPenjahitController extends Controller
         return response()->json($response, 200);
     }
 
+
+    public function get_data_penjahit_by_id($id){
+        $response = DB::table('penjahit')
+        ->where('penjahit.id_penjahit', '=', $id)
+        ->get();
+
+        return response()->json($response, 200);
+    }
+
     public function insert_data_penjahit(Request $request){
 
        

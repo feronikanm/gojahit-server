@@ -52,6 +52,7 @@ Route::post('pelanggan/delete/{id_pelanggan}', 'ApiPelangganController@delete_da
 
 //============= Api Data Penjahit ==================
 Route::get('penjahit', 'ApiPenjahitController@get_all_penjahit');
+Route::get('penjahit/{id_penjahit}', 'ApiPenjahitController@get_data_penjahit_by_id');
 Route::post('penjahit/insert_data', 'ApiPenjahitController@insert_data_penjahit');
 Route::post('penjahit/update/{id_penjahit}', 'ApiPenjahitController@update_data_penjahit');
 Route::post('penjahit/delete/{id_penjahit}', 'ApiPenjahitController@delete_data_penjahit');
