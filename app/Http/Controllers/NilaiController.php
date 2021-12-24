@@ -17,7 +17,7 @@ class NilaiController extends Controller
     public function index(){
 
         
-        $result = DB::select("SELECT id_penjahit, (kriteria_1 + kriteria_2 + kriteria_3 + kriteria_4) AS NilaiAkhir
+        $result = DB::select("SELECT id_penjahit, ((kriteria_1 + kriteria_2 + kriteria_3 + kriteria_4)) AS NilaiAkhir
         FROM (
             SELECT id_penjahit, 
             (kriteria_1*(select normalisasi from kriteria WHERE id_kriteria = 1)) AS kriteria_1, 
@@ -42,8 +42,6 @@ class NilaiController extends Controller
             AS NORMALISASI
         GROUP BY id_penjahit
         ORDER BY (kriteria_1 + kriteria_2 + kriteria_3 + kriteria_4) DESC");
-        // dd($result);
-
 
         $data = json_decode(json_encode($result), true);
         

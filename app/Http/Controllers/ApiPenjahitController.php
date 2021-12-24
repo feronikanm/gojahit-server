@@ -10,19 +10,20 @@ use App\Models\NilaiModel;
 class ApiPenjahitController extends Controller
 {
     public function get_all_penjahit(){
-        // return response()->json(PenjahitModel::all(), 200);
+        return response()->json(PenjahitModel::all(), 200);
 
-        $response = DB::table('penjahit')
-        ->join('penjahit', 'penjahit.id_penjahit', '=', 'nilai.id_penjahit')
-        ->orderBy('nilai.nilai_akhir', 'desc')
-        ->get();
-        return response()->json($response, 200);
+        // $response = DB::table('penjahit')
+        // ->join('penjahit', 'penjahit.id_penjahit', '=', 'nilai.id_penjahit')
+        // ->orderBy('nilai.nilai_akhir', 'desc')
+        // ->get();
+        // return response()->json($response, 200);
     }
 
 
     public function get_data_penjahit_by_id($id){
         $response = DB::table('penjahit')
         ->where('penjahit.id_penjahit', '=', $id)
+        ->leftjoin('nilai', 'nilai.id_penjahit', '=', 'penjahit.id_penjahit')
         ->get();
 
         return response()->json($response, 200);

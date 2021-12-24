@@ -107,16 +107,16 @@ Route::get('/data_penjahit/delete/{id}', 'PenjahitController@destroy');
 //============ Pesanan ============
 Route::get('/data_pesanan', 'PesananController@index');
 
+Route::get('/data_pesanan/penjahit/{id}', 'PesananController@detail_kategori_by_penjahit');
+Route::get('/data_pesanan/add/{id}', 'PesananController@create');
 Route::post('/data_pesanan/store', 'PesananController@store');
-Route::get('/data_pesanan/delete/{id}', 'PesananController@destroy');
 
-
-Route::get('/data_pesanan/show/{id}', 'PesananController@show');
-// Route::get('/data_pesanan/add', 'PesananController@create');
-// Route::post('/data_pesanan/store', 'PesananController@store');
 Route::get('/data_pesanan/edit/{id}', 'PesananController@edit');
 Route::post('/data_pesanan/update/{id}', 'PesananController@update');
-// Route::get('/data_pesanan/delete/{id}', 'PesananController@destroy');
+
+Route::get('/data_pesanan/delete/{id}', 'PesananController@destroy');
+
+Route::get('/data_pesanan/show/{id}', 'PesananController@show');
 //============ Pesanan END ============
 
 
@@ -172,7 +172,6 @@ Route::get('/data_ukuran_detail_kategori/delete/{id}', 'UkuranDetailKategoriCont
 
 //============ Ukuran Detail Pesanan ============
 Route::get('/data_ukuran_detail_pesanan', 'UkuranDetailPesananController@index');
-Route::get('/data_ukuran_detail_pesanan/add', 'UkuranDetailPesananController@create');
 Route::post('/data_ukuran_detail_pesanan/store', 'UkuranDetailPesananController@store');
 Route::get('/data_ukuran_detail_pesanan/edit/{id}', 'UkuranDetailPesananController@edit');
 Route::post('/data_ukuran_detail_pesanan/update/{id}', 'UkuranDetailPesananController@update');

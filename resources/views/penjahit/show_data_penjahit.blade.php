@@ -135,6 +135,11 @@
                 </div> --}}
 
                 <div class="row">
+                  <label class="col-sm-4 col-form-label text-primary">{{ __('Hari Buka') }}</label>
+                  <div class="col-sm-8">{{ $data->hari_buka }}</div>
+                </div>
+
+                <div class="row">
                   <label class="col-sm-4 col-form-label text-primary">{{ __('Jam Buka') }}</label>
                   <div class="col-sm-8">{{ $data->jam_buka }}</div>
                 </div>

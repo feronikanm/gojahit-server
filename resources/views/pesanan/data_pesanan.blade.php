@@ -13,8 +13,15 @@
             <div class="card">
                 
               <div class="card-header card-header-tabs" data-background-color="purple">
+                <div class="nav nav-tabs" data-tabs="tabs">
+                    <span class="nav-tabs-title"><h4 style=" text-shadow: 0 2px 5px rgba(33, 33, 33, 0.5); ">Data Pesanan</h4></span>
+                    <a type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#exampleModal"><i class="material-icons">add</i> Tambah Data</a>
+                </div>
+            </div>
+
+              {{-- <div class="card-header card-header-tabs" data-background-color="purple">
                 <h4 class="card-title">Data Pesanan</h4>
-              </div>
+              </div> --}}
 
                 <div class="card-content">
                   <div class="table-responsive">
@@ -24,6 +31,7 @@
                           <th class="text-center">ID Pesanan</th>
                           <th>Nama Pelanggan</th>
                           <th>Nama Penjahit</th>
+                          <th>Nama Kategori</th>
                           <th>Tanggal Pesanan</th>
                           <th>Tanggal Pesanan Selesai</th>
                           <th>Status Pesanan</th>
@@ -33,9 +41,8 @@
                         $no = 1;
                       @endphp
                       <tbody>   
-                        @foreach ($pesanan as $data_pesanan)
+                        {{-- @foreach ($pesanan as $data_pesanan)
                           <tr>
-                            {{-- <td>{{ $no++ }}</td> --}}
                             <td class="text-center">{{ $data_pesanan->id_pesanan }}</td>
                             <td>{{ $data_pesanan->tbl_pelanggan->nama_pelanggan }}</td>
                             <td>{{ $data_pesanan->tbl_penjahit->nama_penjahit }}</td>
@@ -50,7 +57,26 @@
                               </form>
                             </td> 
                           </tr>
+                        @endforeach --}}
+
+                        @foreach ($data_pesanan as $data_pesanan)
+                          <tr>
+                            {{-- <td>{{ $no++ }}</td> --}}
+                            <td class="text-center">{{ $data_pesanan->id_pesanan }}</td>
+                            <td>{{ $data_pesanan->nama_pelanggan }}</td>
+                            <td>{{ $data_pesanan->nama_penjahit }}</td>
+                            <td>{{ $data_pesanan->nama_kategori }}</td>
+                            <td>{{ $data_pesanan->tanggal_pesanan }}</td>
+                            <td>{{ $data_pesanan->tanggal_pesanan_selesai }}</td>
+                            <td>{{ $data_pesanan->status_pesanan }}</td>
+                            <td class="td-actions text-center">
+                                <a type="button" rel="tooltip" data-placement="bottom" title="Lihat Data" class="btn btn-info" href="/data_pesanan/show/{{ $data_pesanan->id_pesanan }}"><i class="material-icons">trending_flat</i></a>
+                                <a type="button" rel="tooltip" data-placement="bottom" title="Edit Data" class="btn btn-success" href="/data_pesanan/edit/{{ $data_pesanan->id_pesanan }}"><i class="material-icons">edit</i></a>
+                                <a type="button" rel="tooltip" data-placement="bottom" title="Hapus Data" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')" href="/data_pesanan/delete/{{ $data_pesanan->id_pesanan }}"><i class="material-icons">close</i></a>
+                            </td> 
+                          </tr>
                         @endforeach
+
                     </tbody>
                   </table>
                 </div>
@@ -67,8 +93,53 @@
         </div>
     </div>
 
+  <!-- Modal Tambah Data-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Pilih Penjahit</h5>
+        </div>
+        <div class="modal-body">
+
+          <div class="card-content">
+
+            <div class="table-responsive">
+                <table id="datatables" class="table table-bordered table-striped">
+                <thead class=" text-primary">
+                    <th class="text-center">No</th>
+                    <th>Nama Penjahit</th>
+                   
+                    <th class="text-center">Actions</th>
+                </thead>
+                @php
+                    $no = 1;
+                @endphp
+                <tbody>   
+                    @foreach ($penjahits as $data_penjahit)
+                        <tr>
+                            <td class="text-center">{{ $no++ }}</td>
+                            <td>{{ $data_penjahit->nama_penjahit }}</td>
+                        
+                            <td class="td-actions text-center">
+                                <a type="button" rel="tooltip" data-placement="bottom" class="btn btn-info" href="/data_pesanan/penjahit/{{ $data_penjahit->id_penjahit }}">Pilih</a>
+                            </td>
+                            
+                        </tr>
+                        @endforeach
+                </tbody>
+                </table>
+            </div>
+            </div>
+
+
+        </div>
+        </div>
+    </div>
+  <!-- End Modal Tambah Data -->
+
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -81,6 +152,36 @@
 
                 <form method="post" action="/data_pesanan/store" enctype="multipart/form-data">
                     {{ csrf_field() }}
+
+                    <div>
+                      <div class="form-group" id="exampleFormControlSelect1" >
+                      <select class="selectpicker" data-style="btn btn-rose" title="Pilih Penjahit" name="id_penjahit">
+                          @foreach ($penjahits as $penjahit)
+                              <option value="{{ $penjahit->id_penjahit }}">{{ $penjahit->nama_penjahit }}</option>
+                          @endforeach
+                      </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <div class="form-group" id="exampleFormControlSelect1" >
+                      <select class="selectpicker" data-style="btn btn-primary" title="Pilih Pelanggan" name="id_pelanggan">
+                          @foreach ($pelanggans as $pelanggan)
+                              <option value="{{ $pelanggan->id_pelanggan }}">{{ $pelanggan->nama_pelanggan }}</option>
+                          @endforeach
+                      </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <div class="form-group" id="exampleFormControlSelect1" >
+                      <select class="selectpicker" data-style="btn btn-info" title="Pilih Kategori" name="id_pelanggan">
+                          @foreach ($detail_kategori as $detail_kategori)
+                              <option value="{{ $detail_kategori->id_detail_kategori }}">{{ $detail_kategori->nama_kategori }}</option>
+                          @endforeach
+                      </select>
+                      </div>
+                    </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Email address</label>
@@ -154,6 +255,8 @@
 
         </div>
         </div>
-    </div>
+    </div> --}}
+<!-- End Modal -->
+
 
 @endsection

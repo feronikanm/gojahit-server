@@ -39,6 +39,10 @@ class DetailKategoriModel extends Model
         return $this->belongsToMany('App\Models\UkuranModel', 'ukuran_detail_kategori', 'id_detail_kategori', 'id_ukuran');
     }
 
+    public function tbl_pesanan()
+    {
+        return $this->hasMany('App\Models\PesananModel', 'id_detail_kategori');
+    }
 
 
 }

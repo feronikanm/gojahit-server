@@ -24,12 +24,12 @@
                 <div class="card-content">
                      
                   <div class="row">
-                    <label class="col-sm-2 label-on-left">Nama Penjahit</label>
+                    <label class="col-sm-2 label-on-left">Nama Toko Penjahit</label>
                     <div class="col-lg-5 col-md-6 col-sm-7">
                       <div class="form-group">
                         <select class="form-control selectpicker" data-style="btn btn-primary btn-round" title="Nama Penjahit" name="id_penjahit">
                           @foreach ($penjahit as $data_penjahit)
-                            <option value="{{ $data_penjahit->id_penjahit }}">{{ $data_penjahit->nama_penjahit }}</option>
+                            <option value="{{ $data_penjahit->id_penjahit }}">{{ $data_penjahit->nama_toko }}</option>
                           @endforeach
                         </select>
                       </div>

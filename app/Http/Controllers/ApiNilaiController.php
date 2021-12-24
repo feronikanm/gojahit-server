@@ -10,7 +10,7 @@ class ApiNilaiController extends Controller
 
     public function get_all_nilai(){
 
-        $result = DB::select("SELECT id_penjahit, (kriteria_1 + kriteria_2 + kriteria_3 + kriteria_4) AS NilaiAkhir
+        $result = DB::select("SELECT id_penjahit, ((kriteria_1 + kriteria_2 + kriteria_3 + kriteria_4)) AS NilaiAkhir
         FROM (
             SELECT id_penjahit, 
             (kriteria_1*(select normalisasi from kriteria WHERE id_kriteria = 1)) AS kriteria_1, 

@@ -21,4 +21,9 @@ class UkuranModel extends Model
         return $this->belongsToMany('App\Models\DetailKategoriModel');
     }
 
+    public function tbl_ukuran_detail_pesanan()
+    {
+        return $this->hasMany('App\Models\UkuranDetailPesananModel', 'id_ukuran');
+    }
+
 }

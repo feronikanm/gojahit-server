@@ -21,8 +21,8 @@ class CreateUkuranDetailPesananTable extends Migration
         });
 
         Schema::table('ukuran_detail_pesanan', function($table){
-            $table->foreign('id_pesanan')->references('id_pesanan')->on('pesanan')->onUpdate('cascade')->onDelete('cascade');;   
-            $table->foreign('id_ukuran')->references('id_ukuran')->on('ukuran')->onUpdate('cascade')->onDelete('cascade');;      
+            $table->foreign('id_pesanan')->references('id_pesanan')->on('pesanan')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('id_ukuran')->references('id_ukuran')->on('ukuran')->onUpdate('cascade')->onDelete('cascade');    
         });
     }
 

@@ -22,8 +22,6 @@ class ApiDetailKategoriController extends Controller
         $response = DB::table('detail_kategori')
         ->join('penjahit', 'penjahit.id_penjahit', '=', 'detail_kategori.id_penjahit')
         ->join('kategori', 'kategori.id_kategori', '=', 'detail_kategori.id_kategori')
-        ->join('nilai', 'nilai.id_penjahit', '=', 'penjahit.id_penjahit')
-        ->orderBy('nilai.nilai_akhir', 'desc')
         ->where('kategori.id_kategori', '=', $id)
         ->get();
 

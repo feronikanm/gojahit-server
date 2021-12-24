@@ -35,25 +35,15 @@ class KriteriaController extends Controller
 
         $kriteria = KriteriaModel::all();
 
-        // $bobot_kriteria = DB::table('kriteria')->select('bobot_kriteria')->get();
         $bobot_kriteria = DB::table('kriteria')->pluck('bobot_kriteria');
 
         $total_bobot_kriteria = DB::table('kriteria')->sum('kriteria.bobot_kriteria');
 
-        // $normalisasi = array();
-        // foreach($bobot_kriteria as $value)          
-        // {              
-        //   $total = $value/$total_bobot_kriteria;
-        //   array_push($normalisasi, $total);
-        // }
-
         foreach ($kriteria as $key => $value) {
             $kriteria[$key]->normalisasi = $value->bobot_kriteria / $total_bobot_kriteria;
             $kriteria[$key]->save(); 
-
         }
-
-        // return view('kriteria.data_kriteria', compact('kriteria', 'total_bobot_kriteria', 'bobot_kriteria', 'normalisasi', 'total'));
+        
         return view('kriteria.data_kriteria', compact('kriteria', 'total_bobot_kriteria'));
     }
 

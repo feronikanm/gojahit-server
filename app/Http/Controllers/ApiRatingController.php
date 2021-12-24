@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\RatingModel;
+use App\Models\KriteriaModel;
 
 class ApiRatingController extends Controller
 {
     public function get_all_rating(){
         return response()->json(RatingModel::all(), 200);
+    }
+
+    public function get_all_kriteria(){
+        return response()->json(KriteriaModel::all(), 200);
     }
 
     public function insert_data_rating(Request $request){

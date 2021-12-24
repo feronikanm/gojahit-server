@@ -131,7 +131,7 @@
                   </div>
                 </div>
 
-                <div class="row">
+                {{-- <div class="row">
                   <label class="col-sm-2 label-on-left">Hari Buka</label>
                   <div class="col-sm-7 checkbox-radios">
                     <div class="checkbox">
@@ -171,7 +171,7 @@
                     </div>
                 </div>
                   
-                </div>
+                </div> --}}
 
                 <div class="row">
                   <label class="col-sm-2 label-on-left">Jam Buka</label>

@@ -60,6 +60,7 @@ Route::post('penjahit/delete/{id_penjahit}', 'ApiPenjahitController@delete_data_
 
 //============= Api Data Rating ==================
 Route::get('rating', 'ApiRatingController@get_all_rating');
+Route::get('kriteria', 'ApiRatingController@get_all_kriteria');
 Route::post('rating/insert_data', 'ApiRatingController@insert_data_rating');
 Route::post('rating/update/{id_rating}', 'ApiRatingController@update_data_rating');
 Route::post('rating/delete/{id_rating}', 'ApiRatingController@delete_data_rating');

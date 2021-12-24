@@ -39,6 +39,7 @@
   <div class="row">
     <div class="col-md-6">
       <div class="card">
+        
               <div class="card-header card-header-tabs" data-background-color="purple">
                   <h4 class="card-title">Detail Data</h4>
               </div>

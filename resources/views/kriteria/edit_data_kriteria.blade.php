@@ -30,7 +30,7 @@
                       <label class="col-sm-2 label-on-left">Nama Kriteria</label>
                       <div class="col-sm-7">
                           <div class="form-group label-floating is-empty">
-                              <input class="form-control" name="nama_utilitas" type="text" placeholder="Nama Utilitas" value="{{ $data->nama_kriteria }}" autofocus />
+                              <input class="form-control" name="nama_kriteria" type="text" placeholder="Nama Utilitas" value="{{ $data->nama_kriteria }}" autofocus />
                           </div>
                       </div>
                     </div>

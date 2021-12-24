@@ -176,3 +176,10 @@ WHERE pesanan.id_pelanggan = 1
 SELECT * FROM ukuran_detail_pesanan
 JOIN ukuran ON ukuran.id_ukuran = ukuran_detail_pesanan.id_ukuran
 WHERE ukuran_detail_pesanan.id_pesanan = 5
+
+SELECT * FROM ukuran_detail_pesanan
+JOIN ukuran ON ukuran.id_ukuran = ukuran_detail_pesanan.id_ukuran
+JOIN pesanan ON pesanan.id_pesanan = ukuran_detail_pesanan.id_pesanan
+JOIN detail_kategori ON detail_kategori.id_detail_kategori = pesanan.id_detail_kategori
+JOIN kategori ON kategori.id_kategori = detail_kategori.id_kategori
+WHERE ukuran_detail_pesanan.id_pesanan = 2;

@@ -18,6 +18,7 @@ class ApiPesananController extends Controller
         ->join('penjahit', 'penjahit.id_penjahit', '=', 'pesanan.id_penjahit')
         ->join('pelanggan', 'pelanggan.id_pelanggan', '=', 'pesanan.id_pelanggan')
         ->join('detail_kategori', 'detail_kategori.id_detail_kategori', '=', 'pesanan.id_detail_kategori')
+        ->join('kategori', 'kategori.id_kategori', '=', 'detail_kategori.id_kategori')
         ->get();
 
         return response()->json($response, 200);
@@ -28,7 +29,9 @@ class ApiPesananController extends Controller
         ->join('penjahit', 'penjahit.id_penjahit', '=', 'pesanan.id_penjahit')
         ->join('pelanggan', 'pelanggan.id_pelanggan', '=', 'pesanan.id_pelanggan')
         ->join('detail_kategori', 'detail_kategori.id_detail_kategori', '=', 'pesanan.id_detail_kategori')
+        ->join('kategori', 'kategori.id_kategori', '=', 'detail_kategori.id_kategori')
         ->where('pesanan.id_pelanggan', '=', $id)
+        ->orderBy('pesanan.id_pesanan', 'desc')
         ->get();
 
         return response()->json($response, 200);
@@ -39,7 +42,9 @@ class ApiPesananController extends Controller
         ->join('penjahit', 'penjahit.id_penjahit', '=', 'pesanan.id_penjahit')
         ->join('pelanggan', 'pelanggan.id_pelanggan', '=', 'pesanan.id_pelanggan')
         ->join('detail_kategori', 'detail_kategori.id_detail_kategori', '=', 'pesanan.id_detail_kategori')
+        ->join('kategori', 'kategori.id_kategori', '=', 'detail_kategori.id_kategori')
         ->where('pesanan.id_penjahit', '=', $id)
+        ->orderBy('pesanan.id_pesanan', 'desc')
         ->get();
 
         return response()->json($response, 200);

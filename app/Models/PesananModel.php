@@ -20,7 +20,6 @@ class PesananModel extends Model
         'lama_waktu_pengerjaan',
         'catatan_pesanan',
         'desain_jahitan',
-        'kategori',
         'bahan_jahit',
         'asal_bahan',
         'panjang_bahan',
@@ -44,4 +43,9 @@ class PesananModel extends Model
     {
         return $this->belongsTo('App\Models\PenjahitModel', 'id_penjahit');
     }
+
+    public function tbl_detail_kategori()
+    {
+        return $this->belongsTo('App\Models\DetailKategoriModel', 'id_detail_kategori');
+    }  
 }

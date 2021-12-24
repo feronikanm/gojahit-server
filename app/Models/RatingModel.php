@@ -13,8 +13,10 @@ class RatingModel extends Model
     protected $fillable = [
         'id_rating',
         'id_penjahit',
-        'id_kriteria',
-        'rating_penjahit',
+        'kriteria_1',
+        'kriteria_2',
+        'kriteria_3',
+        'kriteria_4',
     ];
 
     public function tbl_penjahit()
