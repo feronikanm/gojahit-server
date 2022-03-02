@@ -8,7 +8,8 @@ SELECT penjahit.* FROM penjahit JOIN detail_kategori ON penjahit.id_penjahit = d
 
 SELECT penjahit.nama_penjahit FROM penjahit JOIN detail_kategori ON penjahit.id_penjahit = detail_kategori.id_penjahit WHERE detail_kategori.id_penjahit=1;
 
-SELECT penjahit.nama_penjahit, detail_kategori.keterangan_kategori, ukuran.nama_ukuran FROM penjahit 
+SELECT penjahit.nama_penjahit, detail_kategori.keterangan_kategori, ukuran.nama_ukuran 
+FROM penjahit 
 JOIN detail_kategori ON penjahit.id_penjahit = detail_kategori.id_penjahit 
 JOIN ukuran_detail_kategori ON detail_kategori.id_detail_kategori = ukuran_detail_kategori.id_detail_kategori
 JOIN ukuran ON ukuran_detail_kategori.id_ukuran = ukuran.id_ukuran 
@@ -183,3 +184,14 @@ JOIN pesanan ON pesanan.id_pesanan = ukuran_detail_pesanan.id_pesanan
 JOIN detail_kategori ON detail_kategori.id_detail_kategori = pesanan.id_detail_kategori
 JOIN kategori ON kategori.id_kategori = detail_kategori.id_kategori
 WHERE ukuran_detail_pesanan.id_pesanan = 2;
+
+
+/* write your SQL query below */
+
+SELECT a.ID, a.Name, DivisionName, m.Name as ManagerName, a.Salary
+FROM maintable_8QH5Y as a
+INNER JOIN cb_companydivisions as b ON a.DivisionID = b.ID
+INNER JOIN maintable_8QH5Y as m ON a.ManagerID = m.ID
+ORDER BY a.Salary DESC
+LIMIT 1
+OFFSET 1
